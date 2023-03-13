@@ -1,6 +1,5 @@
 import Signup from "../../components/Signup/Signup";
-import React, { useState } from "react";
-import "./HomePage.css";
+import React, { useState } from "react"
 import Login from "../../components/Login/Login";
 
 import { Link, useNavigate } from "react-router-dom";

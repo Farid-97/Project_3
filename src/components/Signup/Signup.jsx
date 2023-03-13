@@ -1,13 +1,11 @@
-import React from 'react'
-import  "./Signup.css";
+import React from "react";
+import "./Signup.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
-import axios from 'axios';
-
+import axios from "axios";
 
 function Signup() {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -19,28 +17,25 @@ function Signup() {
   const handlePassword = (e) => setPassword(e.target.value);
   const handleUserame = (e) => setUsername(e.target.value);
 
-  const handleSignupSubmit =async (e) => {
+  const handleSignupSubmit = async (e) => {
     e.preventDefault();
     // Create an object representing the request body
     const requestBody = { email, password, username };
 
     // Send a request to the server using axios
     try {
-      const authToken = localStorage.getItem("authToken");
-       await axios.post(
-        `${import.meta.env.VITE_API_URL}/auth/signup`, 
-        requestBody, 
-        { headers: { Authorization: `Bearer ${authToken}` },
-      })
-
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/auth/signup`,
+        requestBody
+      );
+      navigate("/login");
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-  
+  };
 
-    // Or using a service
-   /*  authService
+  // Or using a service
+  /*  authService
       .signup(requestBody)
       .then((response) => {
         // If the POST request is successful redirect to the login page
@@ -52,35 +47,39 @@ function Signup() {
         setErrorMessage(errorDescription);
       }); */
 
-
   return (
     <div>
-       <h1>Sign Up</h1>
+      <h1>Sign Up</h1>
 
-<form onSubmit={handleSignupSubmit}>
-  <label htmlFor='email'>Email:</label>
-  <input type="email" name="email" value={email} onChange={handleEmail} />
+      <form onSubmit={handleSignupSubmit}>
+        <label htmlFor="email">Email:</label>
+        <input type="email" name="email" value={email} onChange={handleEmail} />
 
-  <label htmlFor='password'>Password:</label>
-  <input
-    type="password"
-    name="password"
-    value={password}
-    onChange={handlePassword}
-  />
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handlePassword}
+        />
 
-  <label htmlFor='username'>Name:</label>
-  <input type="text" name="username" value={username} onChange={handleUserame} />
+        <label htmlFor="username">Name:</label>
+        <input
+          type="text"
+          name="username"
+          value={username}
+          onChange={handleUserame}
+        />
 
-  <button type="submit">Sign Up</button>
-</form>
+        <button type="submit">Sign Up</button>
+      </form>
 
-{errorMessage && <p className="error-message">{errorMessage}</p>}
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-<p>Already have account?</p>
-<Link to={"/login"}> Login</Link>
+      <p>Already have account?</p>
+      <Link to={"/login"}> Login</Link>
     </div>
-  )
+  );
 }
 
-export default Signup
+export default Signup;
