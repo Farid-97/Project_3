@@ -1,7 +1,13 @@
-
+body {
+    align-items: center;
+    background-color: #eae4e4;
+    display: flex;
+    justify-content: center;
+   
+  }
   
   .form {
-    background-color: #303891;
+    background-color: #15172b;
     border-radius: 20px;
     box-sizing: border-box;
     height: 500px;
@@ -116,4 +122,3 @@
   .submit:active {
     background-color: #06b;
   }
-  

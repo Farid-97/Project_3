@@ -1,10 +1,10 @@
-import "./LoginPage.css";
+import "./Login.css";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
 
-function LoginPage() {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -66,8 +66,8 @@ function LoginPage() {
 
       <p>Don't have an account yet?</p>
       <Link to={"/signup"}> Sign Up</Link>
-    </div>
-  );
+    </div> 
+  ); 
 }
 
-export default LoginPage;
+export default Login;

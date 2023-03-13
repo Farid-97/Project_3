@@ -1,22 +1,34 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-
+import { useState } from "react";
 import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import SignupPage from "./pages/SignupPage/SignupPage";
-import LoginPage from "./pages/LoginPage/LoginPage";
+
+import Login from "./components/Login/Login";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 
 function App() {
+
+  const [hiddenS, setHiddenS] = useState(true);
+  const toggleHiddenS= ()=> {
+    setHiddenS(!hiddenS);
+    setHiddenL(true);
+  }
+  const [hiddenL, setHiddenL] = useState(true);
+  const toggleHiddenL= ()=> {
+    setHiddenL(!hiddenL)
+    setHiddenS(true)
+  }
+
   return (
     <div className="App">
-      <Navbar />
+      <Navbar toggleHiddenS={toggleHiddenS} toggleHiddenL={toggleHiddenL} />
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage hiddenS={hiddenS} hiddenL={hiddenL}/>} />
 
         <Route
           path="/profile"
@@ -27,19 +39,12 @@ function App() {
           }
         />
 
-        <Route
-          path="/signup"
-          element={
-            <IsAnon>
-              <SignupPage />
-            </IsAnon>
-          }
-        />
+        
         <Route
           path="/login"
           element={
             <IsAnon>
-              <LoginPage />
+              <Login />
             </IsAnon>
           }
         />
