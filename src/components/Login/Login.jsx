@@ -2,7 +2,10 @@ import "./Login.css";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-import authService from "../../services/auth.service";
+import axios from "axios";
+import React from "react";
+
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -11,38 +14,35 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const { storeToken, authenticateUser } = useContext(AuthContext);
+  const {storedToken, authenticateUser} = useContext(AuthContext)
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async(e) => {
     e.preventDefault();
     const requestBody = { email, password };
 
-    // Send a request to the server using axios
-    /* 
-    axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/login`)
-      .then((response) => {})
-    */
-
-    // Or using a service
-    authService
-      .login(requestBody)
-      .then((response) => {
-        // If the POST request is successful store the authentication token,
-        // after the token is stored authenticate the user
-        // and at last navigate to the home page
-        storeToken(response.data.authToken);
+     // Send a request to the server using axios
+      
+      try {
+        const response = await axios.post(
+          `${process.env.REACT_APP_API_URL}/auth/login`,
+          requestBody,{ headers: { Authorization: `Bearer ${storedToken}` },
+        }
+        )
+        localStorage.setItem("authToken", response.data.authToken);
         authenticateUser();
+  
+  
         navigate("/");
-      })
-      .catch((error) => {
-        // If the request resolves with an error, set the error message in the state
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
-      });
-  };
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+ 
+  
 
   return (
     <div className="LoginPage">
@@ -52,7 +52,7 @@ function Login() {
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
-        <label>Password:</label>
+        <label htmlFor="email">Password:</label>
         <input
           type="password"
           name="password"

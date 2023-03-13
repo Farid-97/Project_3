@@ -51,10 +51,10 @@ function Navbar({ toggleHiddenS, toggleHiddenL,toggleHiddenH }) {
       });
   };
   return (
-    <nav>
+    <nav className="nav">
       
       <Link to="/">
-        <button onClick={toggleHiddenH}>Home</button>
+        <button className="login" onClick={toggleHiddenH}>Home</button>
       </Link>
 
       {isLoggedIn && (

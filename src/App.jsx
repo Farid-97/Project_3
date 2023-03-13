@@ -11,29 +11,35 @@ import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 
 function App() {
-
   const [hiddenS, setHiddenS] = useState(true);
-  const toggleHiddenS= ()=> {
+  const toggleHiddenS = () => {
     setHiddenS(!hiddenS);
     setHiddenL(true);
-  }
+  };
   const [hiddenL, setHiddenL] = useState(true);
-  const toggleHiddenL= ()=> {
-    setHiddenL(!hiddenL)
-    setHiddenS(true)
-  }
+  const toggleHiddenL = () => {
+    setHiddenL(!hiddenL);
+    setHiddenS(true);
+  };
 
-  const toggleHiddenH= ()=> {
-    setHiddenL(true)
-    setHiddenS(true)
-  }
+  const toggleHiddenH = () => {
+    setHiddenL(true);
+    setHiddenS(true);
+  };
 
   return (
     <div className="App">
-      <Navbar toggleHiddenS={toggleHiddenS} toggleHiddenL={toggleHiddenL} toggleHiddenH={toggleHiddenH} />
+      <Navbar
+        toggleHiddenS={toggleHiddenS}
+        toggleHiddenL={toggleHiddenL}
+        toggleHiddenH={toggleHiddenH}
+      />
 
       <Routes>
-        <Route path="/" element={<HomePage hiddenS={hiddenS} hiddenL={hiddenL}/>} />
+        <Route
+          path="/"
+          element={<HomePage hiddenS={hiddenS} hiddenL={hiddenL} />}
+        />
 
         <Route
           path="/profile"
@@ -44,13 +50,20 @@ function App() {
           }
         />
 
-        
         <Route
           path="/login"
           element={
             <IsAnon>
               <Login />
             </IsAnon>
+          }
+        />
+        <Route
+          path="/initialPage"
+          element={
+            <IsPrivate>
+              <welcomePage />
+            </IsPrivate>
           }
         />
       </Routes>
