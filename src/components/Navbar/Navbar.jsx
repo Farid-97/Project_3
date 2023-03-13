@@ -52,14 +52,14 @@ function Navbar({ toggleHiddenS, toggleHiddenL,toggleHiddenH }) {
   };
   return (
     <nav className="nav">
-      
+    {/*  <Link to="/" onClick={toggleHiddenH}> <img src="https://assets.turbologo.com/blog/en/2021/11/14085618/pinterest-emblem.png" alt="company logo" /> </Link> */} 
       <Link to="/">
-        <button className="login" onClick={toggleHiddenH}>Home</button>
+        <button className="entry" onClick={toggleHiddenH}>Home</button>
       </Link>
 
       {isLoggedIn && (
         <>
-          <button onClick={logOutUser}>Logout</button>
+          <button className="entry" onClick={logOutUser}>Logout</button>
 
           <Link to="/profile">
             <button>Profile</button>
@@ -72,9 +72,9 @@ function Navbar({ toggleHiddenS, toggleHiddenL,toggleHiddenH }) {
 
       {!isLoggedIn && (
         <>
-          <button onClick={toggleHiddenS}>Signup</button>
+          <button className="entry" onClick={toggleHiddenS}>Signup</button>
 
-          <button onClick={toggleHiddenL}>Login</button>
+          <button className="entry" onClick={toggleHiddenL}>Login</button>
         </>
       )}
     </nav>
