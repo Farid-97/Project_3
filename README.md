@@ -1,266 +1,70 @@
-# Project Name
+# Getting Started with Create React App
 
-​
-<br>
-​
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Quick Compo
+## Available Scripts
 
-​
-<br>
-​
+In the project directory, you can run:
 
-## Description
+### `npm start`
 
-​
-This is an app to search for ideas of whatever you want. You can post pictures gifs or videos of any work that you have done, any example or display of your living room that you would like to share with the world, you can share whatever you want.
-​
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## User Stories
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-​
+### `npm test`
 
-- **404:** As a user I get to see a 404 page with a feedback message if I try to reach a page that does not exist so that I know it's my fault.
-- **Signup:** Signup and being redirected to the login page so you can access the app
-- **Login:** As a user I can login to the platform so that I can access my profile and fill my personal information.
-- **Logout:** As a logged in user I can logout from the app so no one else use it.
-- **Profile Page**: As a logged in user I can visit my profile page so that I can access the edit page and see my personal information, change my profile picture, you can also see your albuns created and images that you have added.
-- **Add New Post:** As a logged in user i can add a new post, with a image, title, description and a various tags so they can be found more easily.
-- **Edit Post:** As a logged in user i can edit a post i created.
-- **User Initial Page:** As a logged in user i can see all the Post created by all the users.
-- **Home Page:** As a user I want to see what it is available in this website.
-  ​
-  ​
-  ​
-  ​
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Backlog
+### `npm run build`
 
-​
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- sort by tags
-  ​
-  ​
-  <br>
-  ​
-  ​
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-# Client / Frontend
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-​
+### `npm run eject`
 
-## React Router Routes (React App)
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-​
-| Path | Component | Permissions | Behavior |
-| ---------------------------- | -------------------- | -------------------------- | --------------------------------------------------------- |
-| `/login` | LoginPage | anon only `<AnonRoute>` | Login form, navigates to home page after login. |
-| `/signup` | SignupPage | anon only `<AnonRoute>` | Signup form, navigates to home page after signup. |
-| `/` | HomePage | public `<Route>` | Home page. |
-| `/user-profile` | ProfilePage | user only `<PrivateRoute>` | User profile for the current user. |
-| `/user-profile/edit` | EditProfilePage | user only `<PrivateRoute>` | Edit user profile form. |
-| `/post/add` | CreatePostPage | user only `<PrivateRoute>` | Create new Post form. |
-| `/initialPage` | PostListPage | user only `<PrivateRoute>` | Post list. |
-| `/post/:postId` | PostDetailPage | user only `<PrivateRoute>` | Post details. Shows post details, title, description and the image of the post and who posted it. |
-| `/profile/:id` | SpecificProfile | user only `<PrivateRoute>` | Specific person profile with all the content he/she posted until now. |
-​
-​
-​
-​
-​
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Components
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-​
-Pages:
-​
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-- LoginPage
-  ​
-- SignupPage
-  ​
-- HomePage
-  ​
-- ProfilePage
-  ​
-- EditProfilePage
-  ​
-- AddPost
-  ​
-- EditPost
-  ​
-- SpecificProfile
-  ​
-- InitialPage
-  ​
-  ​
+## Learn More
 
-​
-Components:
-​
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- Navbar
-- SearchBar
-- FollowButton
-- FavButton
-- CommentInput
-  ​
-  ​
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## Services
+### Code Splitting
 
-​
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-- **Auth Service**
-  ​
-  - `authService` : - `.login(user)` - `.signup(user)` - `.logout()` - `.validate()`
-    ​
-- **User Service**
-  ​
-  - `userService` : - `.updateCurrentUser(id, userData)` - `.getCurrentUser()`
-    ​
-- **Post Service**
-  ​
-  - `postService` : - `.createpost(postData)` - `.getPost()` - `.getOnePost(id)` - `.updatePost(id, postData)` - `.deletePost(id)`
-    ​
-- **Profile Service**
-  ​
-  - `profileService` : - `.getUserDetails(id)`
-    ​
+### Analyzing the Bundle Size
 
-​
-​
-​
-<br>
-​
-​
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-# Server / Backend
+### Making a Progressive Web App
 
-​
-​
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-## Models
+### Advanced Configuration
 
-​
-**User model**
-​
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-```javascript
-{
-  username: {type: String, required: true, unique: true}
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-	post: { type: Schema.Types.ObjectId, ref:'Post' },
-  favourites: [ { type: Schema.Types.ObjectId, ref:'Post' } ]
-  following:[{type: Schema.Types.ObjectId, ref:'User'}]
-}
-```
+### Deployment
 
-​
-​
-​
-**Post model**
-​
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-```javascript
- {
-   title: { type: String, required: true },
-   img: { type: String, required: true},
-   description: { type: String },
-   tags: {type: [String], required: true}
-   comments: [{type: Schema.Types.ObjectId, ref:'Comment'}]
-}
-```
+### `npm run build` fails to minify
 
-​
-​
-​
-**Comments model**
-​
-
-```javascript
-{
-  userId: [{type: Schema.Types.ObjectId, ref:'User'}],
-  comment: {type:string, required: true}
-}
-```
-
-​
-​
-​
-​
-<br>
-​
-​
-
-## API Endpoints (backend routes)
-
-​
-| HTTP Method | URL | Request Body | Success status | Error Status | Description |
-| ----------- | ---------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
-| GET | `/auth/profile    ` | Saved session | 200 | 404 | Check if user is logged in and return profile page |
-| POST | `/auth/signup` | {name, email, password} | 201 | 404 | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
-| POST | `/auth/login` | {username, password} | 200 | 401 | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session |
-| POST | `/auth/logout` | | 204 | 400 | Logs out the user |
-| GET | `/api/posts` | | | 400 | Show all posts |
-| GET | `/api/post/:id` | | | | Show specific post |
-| POST | `/api/post` | { title, img, description, tags } | 201 | 400 | Create and save a new post |
-| PUT | `/api/post/:id` | { title, description, tags } | 200 | 400 | edit post |
-| DELETE | `/api/post/:id` | | 201 | 400 | delete post |
-| GET | `/api/person/:id` | | | | show specific person | |
-| PUT | `/api/profile/:id` | { username, password } | 201 | 400 | edit personal information |
-​
-​
-<br>
-​
-
-## API's
-
-none
-​
-<br>
-​
-
-## Packages
-
-​
-​
-<br>
-​
-​
-
-## Links
-
-​
-
-### Trello/Kanban
-
-​
-[Link to your trello board](https://trello.com/b/PBqtkUFX/curasan) or a picture of your physical board
-​
-
-### Git
-
-​
-The url to your repository and to your deployed project
-​
-[Client repository Link](https://github.com/screeeen/project-client)
-​
-[Server repository Link](https://github.com/screeeen/project-server)
-​
-[Deployed App Link](http://heroku.com)
-​
-
-### Slides
-
-​
-[Slides Link](http://slides.com) - The url to your _public_ presentation slides
-​
-
-### Contributors
-
-​
-FirstName LastName - <github-username> - <linkedin-profile-link>
-​
-FirstName LastName - <github-username> - <linkedin-profile-link>
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
