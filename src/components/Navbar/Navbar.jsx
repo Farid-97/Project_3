@@ -4,81 +4,64 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
 import React, { useState } from "react";
+import Search from '../../components/Searchbar/Search';
 
-function Navbar({ toggleHiddenS, toggleHiddenL,toggleHiddenH }) {
+function Navbar({ toggleHiddenS, toggleHiddenL,toggleHiddenH, searchPost }) {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider's `value` prop
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [errorMessage, setErrorMessage] = useState(undefined);
-
-  const navigate = useNavigate();
-
-  const handleEmail = (e) => setEmail(e.target.value);
-  const handlePassword = (e) => setPassword(e.target.value);
-  const handleName = (e) => setName(e.target.value);
-
-  const handleSignupSubmit = (e) => {
-    e.preventDefault();
-    // Create an object representing the request body
-    const requestBody = { email, password, name };
-
-    // Send a request to the server using axios
-    /* 
-    const authToken = localStorage.getItem("authToken");
-    axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/auth/signup`, 
-      requestBody, 
-      { headers: { Authorization: `Bearer ${authToken}` },
-    })
-    .then((response) => {})
-    */
-
-    // Or using a service
-    authService
-      .signup(requestBody)
-      .then((response) => {
-        // If the POST request is successful redirect to the login page
-        navigate("/login");
-      })
-      .catch((error) => {
-        // If the request resolves with an error, set the error message in the state
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
-      });
-  };
+  const { isLoggedIn, logOutUser } = useContext(AuthContext);
+  
   return (
-    <nav className="nav">
-      
-      <Link to="/">
-        <button className="login" onClick={toggleHiddenH}>Home</button>
-      </Link>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+  {isLoggedIn && (
+<>
+<Link to="/feed" class="navbar-brand">Feed</Link>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+   aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <Search searchPost={searchPost}/>
+  <Link to="/profilePage">
+    <button>Profile</button>
+  </Link>
+  <button onClick={event => {logOutUser(); toggleHiddenH()}}>Logout</button>
+</>
+)}
 
-      {isLoggedIn && (
-        <>
-          <button onClick={logOutUser}>Logout</button>
-
-          <Link to="/profile">
-            <button>Profile</button>
-            {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+{!isLoggedIn && (
+<>
+            <Link to="/">
+            <button className="entry" onClick={toggleHiddenH}>
+              Home
+            </button>
           </Link>
+          <button className="entry" onClick={toggleHiddenS}>
+            Signup
+          </button>
 
-          <span>{user && user.name}</span>
-        </>
-      )}
-
-      {!isLoggedIn && (
-        <>
-          <button onClick={toggleHiddenS}>Signup</button>
-
-          <button onClick={toggleHiddenL}>Login</button>
-        </>
-      )}
-    </nav>
+          <button className="entry" onClick={toggleHiddenL}>
+            Login
+          </button>
+      {/* <li class="nav-item active">
+        <a onClick={toggleHiddenS} class="nav-link" href="#">Signup<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        
+        <a  onClick={toggleHiddenL} class="nav-link" href="#">Login</a>
+      </li> */}
+      </>
+)}
+      
+      
+    </ul>
+    </div>
+</nav>
+  
   );
 }
 
 export default Navbar;
+

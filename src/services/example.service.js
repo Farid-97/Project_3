@@ -3,7 +3,7 @@ import axios from 'axios';
 class ExampleService {
   constructor() {
     this.api = axios.create({
-      baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005"
+      baseURL: process.env.REACT_APP_API_URL || "http://localhost:5005"
     });
 
     // Automatically set JWT token in the headers for every request
@@ -20,31 +20,43 @@ class ExampleService {
   }
 
   // POST /api/examples
-  createOne = async (requestBody) => {
-    return this.api.post('/api/examples', requestBody);
+  addPost = async (requestBody) => {
+    return this.api.post('/api/post', requestBody);
   }
 
   // GET /api/examples
-  getAll = async () => {
-    return this.api.get('/api/examples');
+  getAllPosts = async () => {
+    return this.api.get('/api/post');
   }
 
   // GET /api/examples/:id
-  getOne = async (id) => {
-    return this.api.get(`/api/examples/${id}`);
+  getOnePost = async (id) => {
+    return this.api.get(`/api/post/${id}`);
   }
 
   // PUT /api/examples/:id
-  updateOne = async (id, requestBody) => {
-    return this.api.put(`/api/examples/${id}`, requestBody);
+  updateOnePost = async (id, requestBody) => {
+    return this.api.put(`/api/editPost/${id}`, requestBody);
   }
 
   // DELETE /api/examples/:id
-  deleteProject = async (id) => {
-    return this.api.delete(`/api/examples/${id}`);
+  deletePost = async (id) => {
+    return this.api.delete(`/api/post/${id}`);
   } 
 
 
+  uploadImage = async (file) => {
+    const response = await this.api.post("/api/upload", file)
+      return response.data
+  };
+
+  getUser = async () => {
+    return this.api.get('/api/getUser');
+  }
+
+  addPostFavourites = async (id) => {
+    return this.api.get(`/api/favourites/${id}`);
+  }
 }
 
 // Create one instance of the service

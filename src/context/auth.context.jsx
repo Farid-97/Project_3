@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import authService from "../services/auth.service";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = React.createContext();
 
@@ -7,11 +8,12 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   const storeToken = (token) => {
     localStorage.setItem("authToken", token);
   };
-
+  const headers = {headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }}
   const authenticateUser = () => {
     // Get the stored token from the localStorage
     const storedToken = localStorage.getItem("authToken");
@@ -61,6 +63,7 @@ function AuthProviderWrapper(props) {
     // Upon logout, remove the token from the localStorage
     removeToken();
     authenticateUser();
+    navigate('/');
   };
 
   useEffect(() => {
