@@ -30,7 +30,6 @@ function Navbar({ toggleHiddenS, toggleHiddenL,toggleHiddenH, searchPost }) {
     
               <Link to="/profile">
                 <a>Profile</a>
-                {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
               </Link>
     
               <span>{user && user.name}</span>
@@ -54,7 +53,7 @@ function Navbar({ toggleHiddenS, toggleHiddenL,toggleHiddenH, searchPost }) {
     </div>
   )
           }
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
   
   {isLoggedIn && (
 <>
@@ -71,8 +70,8 @@ function Navbar({ toggleHiddenS, toggleHiddenL,toggleHiddenH, searchPost }) {
 </>
 )}
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">  </div>
+    <ul class="navbar-nav mr-auto"> </ul>
 {!isLoggedIn && (
 <>
             <Link to="/">
@@ -87,23 +86,19 @@ function Navbar({ toggleHiddenS, toggleHiddenL,toggleHiddenH, searchPost }) {
           <button className="entry" onClick={toggleHiddenL}>
             Login
           </button>
-      {/* <li class="nav-item active">
-        <a onClick={toggleHiddenS} class="nav-link" href="#">Signup<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        
-        <a  onClick={toggleHiddenL} class="nav-link" href="#">Login</a>
-      </li> */}
-      </>
+      
+      
+    
+   
+     </>
+
 )}
-      
-      
-    </ul>
-    </div>
 </nav>
+      
+
   
-  );
-}
+
+
 
 export default Navbar;
 
