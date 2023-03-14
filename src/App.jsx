@@ -3,20 +3,27 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import PostPage from './pages/PostPage/PostPage';
+import WelcomePage from "./pages/InitialPage/WelcomePage";
+import AddPost from "./pages/AddPost/AddPost";
 
 import Login from "./components/Login/Login";
-
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+import IsLogged from "./components/IsLogged/IsLogged";
+import exampleService from "./services/example.service";
 
 function App() {
   const [hiddenS, setHiddenS] = useState(true);
+  const [hiddenL, setHiddenL] = useState(true);
+  const [allPosts, setAllPosts] = useState(null);
+  const [showAllPosts, setShowAllPosts] = useState(null);
+
   const toggleHiddenS = () => {
     setHiddenS(!hiddenS);
     setHiddenL(true);
   };
-  const [hiddenL, setHiddenL] = useState(true);
   const toggleHiddenL = () => {
     setHiddenL(!hiddenL);
     setHiddenS(true);
@@ -27,30 +34,55 @@ function App() {
     setHiddenS(true);
   };
 
+  const getAllPosts = async () => {
+      try {
+        const response = await exampleService.getAllPosts();
+        setAllPosts(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+  const searchPost = (query) => {
+    const filteredPostList = allPosts.filter((post) =>
+      post.tags.toLowerCase().includes(query.toLowerCase())
+    );
+    setShowAllPosts(filteredPostList);
+  };
+
   return (
+
     <div className="App">
       <Navbar
         toggleHiddenS={toggleHiddenS}
         toggleHiddenL={toggleHiddenL}
         toggleHiddenH={toggleHiddenH}
+        searchFood={searchPost}
+
       />
 
       <Routes>
         <Route
           path="/"
-          element={<HomePage hiddenS={hiddenS} hiddenL={hiddenL} />}
+          element={<IsLogged><HomePage hiddenS={hiddenS} hiddenL={hiddenL} /></IsLogged>}
         />
 
         <Route
-          path="/profile"
+          path="/addPost"
           element={
-            <IsPrivate>
-              <ProfilePage />
-            </IsPrivate>
+            <AddPost/>
           }
         />
+        <Route path="/post/:id" element={<PostPage />}/>
+         <Route
+          path="/profilePage"
+          element={
+            <ProfilePage/>
+          }
+        />
+        <Route 
 
-        <Route
+        
           path="/login"
           element={
             <IsAnon>
@@ -59,10 +91,10 @@ function App() {
           }
         />
         <Route
-          path="/initialPage"
+          path="/feed"
           element={
             <IsPrivate>
-              <welcomePage />
+              <WelcomePage />
             </IsPrivate>
           }
         />

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import axios from "axios";
 import React from "react";
+import authService from "../../services/auth.service";
 
 
 
@@ -14,7 +15,7 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const {storedToken, authenticateUser} = useContext(AuthContext)
+  const {authenticateUser} = useContext(AuthContext)
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -24,18 +25,11 @@ function Login() {
     const requestBody = { email, password };
 
      // Send a request to the server using axios
-      
       try {
-        const response = await axios.post(
-          `${process.env.REACT_APP_API_URL}/auth/login`,
-          requestBody,{ headers: { Authorization: `Bearer ${storedToken}` },
-        }
-        )
+        const response = await authService.login(requestBody);
         localStorage.setItem("authToken", response.data.authToken);
         authenticateUser();
-  
-  
-        navigate("/");
+        navigate("/feed");
       } catch (error) {
         console.log(error);
       }
@@ -46,22 +40,19 @@ function Login() {
 
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
-
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label htmlFor="email">Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-
-        <button type="submit">Login</button>
-      </form>
+      <form class="login-form" action="javascript:void(0);" onSubmit={handleLoginSubmit}>
+  <h1>Login</h1>
+  <div class="form-input-material">
+    <input type="email" name="email"   value={email} onChange={handleEmail} class="form-control-material" />
+    <label for="username">Email</label>
+  </div>
+  <div class="form-input-material">
+    <input type="password" name="password" value={password}
+          onChange={handlePassword} class="form-control-material" required />
+    <label htmlFor="password">Password</label>
+  </div>
+  <button type="submit" class="btn btn-primary btn-ghost">Login</button>
+</form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>

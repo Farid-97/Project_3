@@ -1,20 +1,8 @@
 .nav{
-  display: flex;
-  padding-left: 790px;
-  padding-right: 200px;
-background-color: aquamarine;
+  color: rgb(10, 98, 47);
 }
-.entry{
-  font-size: 25px;
-  padding-right: 1000px;
-  border-right: 1000px;
-  margin-right: 1000px;
+.login{
+  color: ;
 }
 
-.logo{
-  width: 20px;
-display: flex;
-padding-right: 500px;
-
-}
-
+  
