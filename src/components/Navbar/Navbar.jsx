@@ -10,75 +10,53 @@ function Navbar({ toggleHiddenS, toggleHiddenL,toggleHiddenH }) {
   // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [errorMessage, setErrorMessage] = useState(undefined);
+  
 
-  const navigate = useNavigate();
+ 
 
-  const handleEmail = (e) => setEmail(e.target.value);
-  const handlePassword = (e) => setPassword(e.target.value);
-  const handleName = (e) => setName(e.target.value);
-
-  const handleSignupSubmit = (e) => {
-    e.preventDefault();
-    // Create an object representing the request body
-    const requestBody = { email, password, name };
-
-    // Send a request to the server using axios
-    /* 
-    const authToken = localStorage.getItem("authToken");
-    axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/auth/signup`, 
-      requestBody, 
-      { headers: { Authorization: `Bearer ${authToken}` },
-    })
-    .then((response) => {})
-    */
-
-    // Or using a service
-    authService
-      .signup(requestBody)
-      .then((response) => {
-        // If the POST request is successful redirect to the login page
-        navigate("/login");
-      })
-      .catch((error) => {
-        // If the request resolves with an error, set the error message in the state
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
-      });
-  };
+ 
   return (
-    <nav className="nav">
-    {/*  <Link to="/" onClick={toggleHiddenH}> <img src="https://assets.turbologo.com/blog/en/2021/11/14085618/pinterest-emblem.png" alt="company logo" /> </Link> */} 
-      <Link to="/">
-        <button className="entry" onClick={toggleHiddenH}>Home</button>
-      </Link>
+    <div class="container-fluid">
+    <Link to="/" onClick={toggleHiddenH}> <img className="logo" src="https://assets.turbologo.com/blog/en/2021/11/14085618/pinterest-emblem.png" alt="company logo" /> </Link>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto ">
+        <li class="nav-item">
+          <Link to="/" class="nav-link mx-2 active" aria-current="page" href="#"  onClick={toggleHiddenH}>Home </Link> 
+        </li>
+          
+        {isLoggedIn && (
+            <>
+              <a class="button-77" role="button" onClick={logOutUser}>Logout</a>
+    
+              <Link to="/profile">
+                <a>Profile</a>
+                {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
+              </Link>
+    
+              <span>{user && user.name}</span>
+            </>
+          )}
+          {!isLoggedIn && (
+            <>
+             <li class="nav-item">
+          <a class="nav-link mx-2" href="#" onClick={toggleHiddenS}>Signup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="#"  onClick={toggleHiddenL}>Login</a>
+        </li>
+              
+            </>
+          )}
+        
+       
+      </ul>
+    </div>
+    </div>
+  )
+          }
 
-      {isLoggedIn && (
-        <>
-          <button className="entry" onClick={logOutUser}>Logout</button>
-
-          <Link to="/profile">
-            <button>Profile</button>
-            {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
-          </Link>
-
-          <span>{user && user.name}</span>
-        </>
-      )}
-
-      {!isLoggedIn && (
-        <>
-          <button className="entry" onClick={toggleHiddenS}>Signup</button>
-
-          <button className="entry" onClick={toggleHiddenL}>Login</button>
-        </>
-      )}
-    </nav>
-  );
-}
-
-export default Navbar;
+export default Navbar
