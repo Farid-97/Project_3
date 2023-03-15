@@ -72,3 +72,7 @@ padding-top: 150px;
   padding-bottom: 50px;
   height: 40vh;
 }
+.secondDiv >p {
+  font-size: 45px;
+  z-index: 10;
+}
