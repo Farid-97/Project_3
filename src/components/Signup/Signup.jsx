@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 import axios from "axios";
 
-function Signup() {
+function Signup({toggleHiddenL }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -28,7 +28,6 @@ function Signup() {
         `${process.env.REACT_APP_API_URL}/auth/signup`,
         requestBody
       );
-      navigate("/login");
     } catch (error) {
       console.log(error);
     }
@@ -71,13 +70,10 @@ function Signup() {
           onChange={handleUserame}
         />
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" onClick={toggleHiddenL}>Sign Up</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import authService from "../../services/auth.service";
 
 
 
- function HomePage({hiddenS,hiddenL}) {
+ function HomePage({hiddenS,hiddenL, toggleHiddenL}) {
  
 
   
@@ -68,6 +68,18 @@ import authService from "../../services/auth.service";
       </div>
     </div>
   </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
+       
+      {!hiddenS && <Signup toggleHiddenL={toggleHiddenL}/>}
+      {!hiddenL && <Login />}
   <div class="box">
     <div class="imgBx">
       <img src="https://images.unsplash.com/photo-1579310962131-aa21f240d986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"/>
