@@ -54,6 +54,10 @@ class ExampleService {
     return this.api.get('/api/getUser');
   }
 
+  editUser = async (body) => {
+    return this.api.put('/api/editUser', body)
+  }
+
   addPostFavourites = async (id) => {
     return this.api.get(`/api/favourites/${id}`);
   }
