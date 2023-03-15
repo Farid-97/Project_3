@@ -15,7 +15,7 @@ import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import IsLogged from "./components/IsLogged/IsLogged";
 import exampleService from "./services/example.service";
-import PostEdit from "./pages/PostPage/PostEdit";
+
 
 function App() {
   const [hiddenS, setHiddenS] = useState(true);
