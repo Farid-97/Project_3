@@ -14,37 +14,76 @@ import authService from "../../services/auth.service";
   
   return (
     
-     
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="https://builder.livingtours.com/public/images/produtos/MAD0241.jpg" alt="First slide"/>
+     <section>
+      
+    {!hiddenS && <Signup/>}
+      {!hiddenL && <Login/>}
+      <h1>Flickity - is-selected class</h1>
+
+
+<div class="carousel" data-flickity>
+  <div class="carousel-cell"></div>
+  <div class="carousel-cell"></div>
+  <div class="carousel-cell"></div>
+  <div class="carousel-cell"></div>
+  <div class="carousel-cell"></div>
+  <div class="carousel-cell"></div>
+  <div class="carousel-cell"></div>
+</div>
+
+<div class="container">
+  <div class="box">
+    <div class="imgBx">
+      <img src="https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_41/3044956/191009-cooking-vegetables-al-1422.jpg"/>
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="" alt="Second slide"/>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide"/>
+    <div class="content">
+      <div>
+        <h2>Cook</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem iusto.
+        </p>
+      </div>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-
-       
-      {!hiddenS && <Signup/>}
-      {!hiddenL && <Login/>}
+  <div class="box">
+    <div class="imgBx">
+      <img src="https://images.unsplash.com/photo-1579639782539-15cc6c0be63f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"/>
     </div>
+    <div class="content">
+      <div>
+        <h2>Image Title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem iusto.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <div class="imgBx">
+      <img src="https://images.unsplash.com/photo-1603984362497-0a878f607b92?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"/>
+    </div>
+    <div class="content">
+      <div>
+        <h2>Image Title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem iusto.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <div class="imgBx">
+      <img src="https://images.unsplash.com/photo-1579310962131-aa21f240d986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80"/>
+    </div>
+    <div class="content">
+      <div>
+        <h2>Image Title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem iusto.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+     </section>
+  
   )
 }
 

@@ -1,0 +1,17 @@
+.postimg{
+    width: 25vw;
+    object-fit: cover;
+    vertical-align: bottom;
+  
+    
+}
+.organization{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rootBeerFloat
+{
+float:left;
+margin:6px;
+}
