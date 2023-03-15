@@ -18,7 +18,7 @@ function PostEdit() {
       e.preventDefault();
       const body = { title, description };
       try {
-         const response = await exampleService.updateOnePost(id,body)
+        await exampleService.updateOnePost(id,body)
         
         navigate(`/profilePage`);
       } catch (error) {

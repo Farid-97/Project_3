@@ -63,7 +63,7 @@ function App() {
       />
 
       <Routes>
-        <Route path="/" element={<IsLogged><HomePage hiddenS={hiddenS} hiddenL={hiddenL} /></IsLogged>}/>
+        <Route path="/" element={<IsLogged><HomePage hiddenS={hiddenS} hiddenL={hiddenL} toggleHiddenL={toggleHiddenL}/></IsLogged>}/>
         <Route path="/editPost/:id" element={<PostEdit />} />
         <Route path="/addPost" element={<AddPost />} />
         <Route path="/post/:id" element={<PostPage />} />

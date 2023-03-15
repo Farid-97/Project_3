@@ -8,7 +8,7 @@ import authService from "../../services/auth.service";
 
 
 
- function HomePage({hiddenS,hiddenL}) {
+ function HomePage({hiddenS,hiddenL, toggleHiddenL}) {
  
 
   
@@ -42,8 +42,8 @@ import authService from "../../services/auth.service";
   </a>
 
        
-      {!hiddenS && <Signup/>}
-      {!hiddenL && <Login/>}
+      {!hiddenS && <Signup toggleHiddenL={toggleHiddenL}/>}
+      {!hiddenL && <Login />}
     </div>
   )
 }

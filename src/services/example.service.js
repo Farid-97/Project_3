@@ -59,7 +59,15 @@ class ExampleService {
   }
 
   addPostFavourites = async (id) => {
-    return this.api.get(`/api/favourites/${id}`);
+    return this.api.put(`/api/favourites/${id}`);
+  }
+
+  deletePostFavourites = async (id) => {
+    return this.api.delete(`/api/deleteFavourites/${id}`);
+  }
+
+  checkFavourite = async (id) => {
+    return this.api.get(`api/checkFavourite/${id}`)
   }
 }
 
