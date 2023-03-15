@@ -34,6 +34,7 @@ function ProfilePage() {
             </div>
         )
     })}
+    <Link to={`/addPost`}><button>Create Post</button></Link> 
     </div>
   );
 }
