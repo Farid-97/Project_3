@@ -2,7 +2,6 @@ import React from "react";
 import "./Signup.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import authService from "../../services/auth.service";
 import axios from "axios";
 
 function Signup({toggleHiddenL }) {
@@ -47,7 +46,7 @@ function Signup({toggleHiddenL }) {
       }); */
 
   return (
-    <div>
+    <div className="form">
       <h1>Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>

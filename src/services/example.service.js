@@ -54,6 +54,10 @@ class ExampleService {
     return this.api.get('/api/getUser');
   }
 
+  getSpecificUser = async (id) => {
+    return this.api.get(`/api/getUser/${id}`)
+  }
+
   editUser = async (body) => {
     return this.api.put('/api/editUser', body)
   }
@@ -66,8 +70,20 @@ class ExampleService {
     return this.api.delete(`/api/deleteFavourites/${id}`);
   }
 
-  checkFavourite = async (id) => {
-    return this.api.get(`api/checkFavourite/${id}`)
+  createComment = async (id, aComment) => {
+    return this.api.post(`/api/createComment/${id}`, aComment)
+  }
+
+  followUser = async (id) => {
+    return this.api.put(`/api/follow/${id}`)
+  }
+
+  notFollowingUser = async (id) => {
+    return this.api.delete(`/api/removeFollow/${id}`)
+  }
+
+  removeComment = async (id, commentId) => {
+    return this.api.delete(`/api/deleteComment/${id}/${commentId}`)
   }
 }
 

@@ -8,6 +8,8 @@ import WelcomePage from "./pages/InitialPage/WelcomePage";
 import AddPost from "./pages/AddPost/AddPost";
 import PostEdit from "./pages/PostEdit/PostEdit";
 import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
+import UserProfile from "./pages/UserProfile/UserProfile";
+import Following from "./pages/Following/Following";
 
 import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
@@ -65,10 +67,12 @@ function App() {
       <Routes>
         <Route path="/" element={<IsLogged><HomePage hiddenS={hiddenS} hiddenL={hiddenL} toggleHiddenL={toggleHiddenL}/></IsLogged>}/>
         <Route path="/editPost/:id" element={<PostEdit />} />
+        <Route path="/following" element={<Following/>} />
         <Route path="/addPost" element={<AddPost />} />
         <Route path="/post/:id" element={<PostPage />} />
         <Route path="/profilePage" element={<ProfilePage />} />
         <Route path="/login" element={<IsAnon><Login /></IsAnon>}/>
+        <Route path="/userProfile/:id" element={<UserProfile/>}/>
         <Route path="/editProfile" element={<EditProfilePage />} />
         <Route path="/feed" element={<IsPrivate><WelcomePage /></IsPrivate>}/>
       </Routes>
