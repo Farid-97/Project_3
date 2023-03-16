@@ -3,7 +3,7 @@ import exampleService from "../../services/example.service";
 import { Link } from "react-router-dom";
 import "../InitialPage/InitialPage.css";
 
-function WelcomePage() {
+function InitialPage() {
   const [posts, setPosts] = useState(null);
 
   const getPosts = async () => {
@@ -29,22 +29,24 @@ function WelcomePage() {
   }, []);
 
   return (
-    <div className="organization">
+    <div className="image">
       {posts &&
         posts.map((post) => {
           return (
+            <div className="idPic">
             <Link to={`/post/${post._id}`}>
               <img
-                className="postimg"
+                className="postsPic"
                 src={post.imgUrl}
                 alt={post.title}
                 key={post._id}
               />
             </Link>
+            </div>
           );
         })}
     </div>
   );
 }
 
-export default WelcomePage;
+export default InitialPage;

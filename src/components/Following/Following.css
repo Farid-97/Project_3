@@ -1,0 +1,59 @@
+.following{
+    position: absolute;
+    z-index:1;
+    background-color: antiquewhite;
+    display:flex;
+    flex-direction: column;
+    height: 70vh;
+    width: 30vw;
+    border-radius: 20px;
+    margin: 15vh 35vw;
+    overflow: auto;
+}
+
+.titleDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 12vw;
+    margin-right:2vw;
+}
+
+.title{
+    margin-top:2vh;
+}
+.exitCross{
+    background-color: white;
+    padding:1vh;
+    border-radius:50%;
+    height: 5vh;
+    width:2.5vw;
+}
+.userInfo{
+    margin-left:2vw;
+}
+.eachUser{
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top:2vh;
+}
+.unFollow{
+    margin-right: 2vw;
+    height:5vh;
+    width:5vw;
+}
+
+.userImage{
+    
+    border-radius: 50%;
+    height: 8vh;
+    width:4vw;
+}
+
+.userName{
+    margin-left:1vw;
+}

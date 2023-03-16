@@ -57,8 +57,8 @@ function Navbar({ toggleHiddenS, toggleHiddenL, toggleHiddenH, searchPost }) {
       {!isLoggedIn && (
         <>
           <Link to="/">
-            <button class="button"  onClick={toggleHiddenH}>
-              Home
+            <button className="button-48"  onClick={toggleHiddenH}>
+              <span className="text">Home</span> 
             </button>
           </Link>
           <button class="button-17" onClick={toggleHiddenS}>

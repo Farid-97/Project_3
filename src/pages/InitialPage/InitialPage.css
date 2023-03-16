@@ -1,17 +1,21 @@
-.postimg{
-    width: 25vw;
-    object-fit: cover;
-    vertical-align: bottom;
-  
-    
+.postsPic{
+    margin-top: 10vh;
+    max-height: 60vh;
+    min-height: 50vh;
+    max-width: 25vw;
+    border-radius: 25px;
+    box-shadow: 1px 4px 10px rgba(133, 133, 133, 0.954);
 }
-.organization{
+.image{
     display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: space-evenly;   
     flex-wrap: wrap;
 }
-
-.rootBeerFloat
-{
-float:left;
-margin:6px;
+.idPic{
+    margin:0.5vh 0.5vw;
+}
+body{
+    overflow-x:hidden;
 }

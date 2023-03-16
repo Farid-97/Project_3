@@ -75,6 +75,15 @@
   /*  z-index: 2; */
   /* border-radius: 50px; */
 }
+.secondDivImg4{
+  position: absolute;
+  top: 225vh;
+  height: 25vh;
+  width: 18vw;
+  left: 23vw;
+  border-radius: 40px;
+  z-index: 3;
+}
 .secondDiv > p {
   font-size: 45px;
   padding-left: 50vw;

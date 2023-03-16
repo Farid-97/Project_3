@@ -80,18 +80,19 @@ function HomePage({ hiddenS, hiddenL, toggleHiddenL }) {
             <img
               className="secondDivImg1"
               src="https://res.cloudinary.com/df3vc4osi/image/upload/v1678970801/movie-gallery/spoonful-of-spices-cooking-vwodnnl3zzdsqhbo_vlqlpp.jpg"
-              alt="create"
+              alt="Spoonful of spices"
             />
             <img
               className="secondDivImg2"
               src="https://res.cloudinary.com/df3vc4osi/image/upload/v1678970747/movie-gallery/s-l1600_lvvbjq.jpg"
-              alt="create"
+              alt="Lebron James"
             />
             <img
               className="secondDivImg3"
               src="https://images.daznservices.com/di/library/sporting_news/45/34/nascar-phoenix-051220-getty-ftrjpg_jugcv1cq6unt19ta8g1p0vl27.jpg"
-              alt="create"
+              alt="Nascar"
             />
+            <img className="secondDivImg4" src="https://res.cloudinary.com/df3vc4osi/image/upload/v1678978403/movie-gallery/b2e197f10d2f67265dc3b84f11f1c575_zfdcgb.jpg" alt="Ramen" />
           </div>
           <p>
             Find any topic you like such as sports, food, cars and see multitude

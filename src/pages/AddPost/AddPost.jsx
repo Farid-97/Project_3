@@ -8,12 +8,13 @@ function AddPost() {
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState("");
   const [imgUrl, setImgUrl] = useState("");
+  const [size, setSize] = useState('');
   const [loading, setLoading] = useState(true);
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleDescreption = (e) => setDescription(e.target.value);
   const handleTags = (e) => setTags(e.target.value);
-
+  const handleSize = (e) => setSize(e.target.value);
   const handleFileUpload = (e) => {
     // console.log("The file to be uploaded is: ", e.target.files[0]);
 
@@ -39,7 +40,8 @@ function AddPost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("hello");
-    const body = { title, description, tags, imgUrl };
+    const body = { title, description, tags, imgUrl, size };
+    console.log(size);
     try {
       await exampleService.addPost(body);
       navigate(`/profilePage`);
@@ -63,8 +65,14 @@ function AddPost() {
         />
         <label htmlFor="title">Tags</label>
         <input type="text" name="title" value={tags} onChange={handleTags} />
+        <label>Size</label>
+        <select onChange={handleSize}>
+          <option value="Large" selected>Large</option>
+          <option value="Medium">Medium</option>
+        </select>
         <label htmlFor="description"> Post</label>
         <input type="file" onChange={(e) => handleFileUpload(e)} />
+        
         {!loading ? (
           <button type="submit" onSubmit={handleSubmit}>
             Submit
