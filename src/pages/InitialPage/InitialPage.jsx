@@ -29,18 +29,20 @@ function WelcomePage() {
   }, []);
 
   return (
-    <div className="organization">
+    <div className="image">
       {posts &&
         posts.map((post) => {
           return (
+            <div className="idPic">
             <Link to={`/post/${post._id}`}>
               <img
-                className="postimg"
+                className="postsPic"
                 src={post.imgUrl}
                 alt={post.title}
                 key={post._id}
               />
             </Link>
+            </div>
           );
         })}
     </div>

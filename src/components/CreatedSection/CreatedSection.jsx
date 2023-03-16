@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import "./CreatedSection.css"
+
 
 function CreatedSection({user}) {
   return (
-    <div> {user.post.map((post) =>{
+    <div className='image'> {user.post.map((post) =>{
         return(
-            <div key={post._id}>
+            <div key={post._id} className="idPic">
               <Link to={`/post/${post._id}`}>
-                <img src={post.imgUrl} alt={post.title}/>
+                <img className='postspic' src={post.imgUrl} alt={post.title}/>
               </Link>
             </div>
         )

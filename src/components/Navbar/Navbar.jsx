@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-
-import Search from "../../components/Searchbar/Search";
+/* 
+import Search from "../../components/Searchbar/Search"; */
 
 import "./Navbar.css";
 
@@ -34,7 +34,7 @@ function Navbar({ toggleHiddenS, toggleHiddenL, toggleHiddenH, searchPost }) {
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <Search searchPost={searchPost} />
+          {/* <Search searchPost={searchPost} /> */}
           <Link to="/profilePage">
             <button>Profile</button>
           </Link>

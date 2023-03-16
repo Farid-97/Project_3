@@ -2,10 +2,8 @@ import "./Login.css";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-import axios from "axios";
 import React from "react";
-import exampleService from "../../services/example.service";
-import { example } from "yargs";
+import axios from "axios";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -26,7 +24,11 @@ function Login() {
     // Send a request to the server using axios
 
     try {
-      const response = await exampleService.login(requestBody);
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/auth/login`,
+        requestBody,{ headers: { Authorization: `Bearer ${storedToken}` },
+      }
+      )
 
       localStorage.setItem("authToken", response.data.authToken);
       authenticateUser();
