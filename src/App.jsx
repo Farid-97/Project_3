@@ -4,7 +4,7 @@ import { useState } from "react";
 import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import PostPage from "./pages/PostPage/PostPage";
-import WelcomePage from "./pages/InitialPage/WelcomePage";
+import WelcomePage from "./pages/InitialPage/InitialPage";
 import AddPost from "./pages/AddPost/AddPost";
 import PostEdit from "./pages/PostEdit/PostEdit";
 import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
