@@ -12,6 +12,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+ 
+  padding-right: 25px;
+  background-color: rgba(0, 255, 255, 0.33);
+  height: 60vh;
 
   padding-right: 25px;
   background-color: rgba(0, 255, 255, 0.33);
@@ -23,8 +27,8 @@
   display: flex;
   z-index: 3;
 }
-.firstDivImg2 {
-  padding-top: 100px;
+.firstDivImg2{
+padding-top: 100px;
   display: flex;
   position: absolute;
   z-index: 4;
@@ -46,15 +50,18 @@
   height: 60vh;
 }
 
-.secondDivImg1 {
+
+
+.secondDivImg1{
   height: 50vh;
   padding-top: 50px;
   display: flex;
   z-index: 3;
   padding-left: 20px;
+  
 }
 
-.secondDivImg2 {
+.secondDivImg2{
   padding-top: 250px;
   display: flex;
   position: absolute;
@@ -64,18 +71,18 @@
   height: 80vh;
   z-index: 3;
 }
-.secondDivImg3 {
+.secondDivImg3{
   display: flex;
-  position: absolute;
+  position:absolute;
   padding-left: 150px;
   padding-bottom: 80px;
   height: 40vh;
   z-index: 4;
   border-radius: 5%;
 }
-.secondDiv > p {
+.secondDiv > p{
   z-index: 5;
-  font-size: 45px;
+  font-size: 45px ;
 }
 .thirdDiv {
   display: flex;
@@ -85,23 +92,14 @@
   background-color: rgba(89, 0, 173, 0.473);
   height: 60vh;
   z-index: 2;
+  
 }
-.thirdDiv > p {
+.thirdDiv > p{
   z-index: 5;
   font-size: 45px;
 }
 .thirdDiv > img {
   height: 50vh;
-}
-
-.secondDivImg2{
-  padding-top: 150px;
-  display: flex;
-  position: absolute;
-  z-index: 4;
-  padding-left: 1300px;
-  padding-bottom: 50px;
-  height: 40vh;
 }
 .secondDiv >p {
   font-size: 45px;

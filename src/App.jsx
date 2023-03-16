@@ -17,7 +17,6 @@ import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import IsLogged from "./components/IsLogged/IsLogged";
 import exampleService from "./services/example.service";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
@@ -77,10 +76,8 @@ function App() {
         <Route path="/editProfile" element={<EditProfilePage />} />
         <Route path="/feed" element={<IsPrivate><WelcomePage /></IsPrivate>}/>
       </Routes>
-      
     </div>
   );
 }
-
 
 export default App;
