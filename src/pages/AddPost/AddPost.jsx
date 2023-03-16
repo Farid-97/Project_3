@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import exampleService from "../../services/example.service";
@@ -10,8 +9,6 @@ function AddPost() {
   const [tags, setTags] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [loading, setLoading] = useState(true);
-
-  const { headers } = useContext(AuthContext);
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleDescreption = (e) => setDescription(e.target.value);

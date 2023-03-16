@@ -76,24 +76,26 @@ function HomePage({ hiddenS, hiddenL, toggleHiddenL }) {
           />
         </div>
         <div className="secondDiv">
-          <img
-            className="secondDivImg1"
-            src="https://wallpapers.com/images/file/spoonful-of-spices-cooking-vwodnnl3zzdsqhbo.jpg"
-            alt="create"
-          />
-          <img
-            className="secondDivImg2"
-            src="https://images.unsplash.com/photo-1628779238951-be2c9f2a59f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTN8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80"
-            alt="create"
-          />
-          <img
-            className="secondDivImg3"
-            src="https://images.daznservices.com/di/library/sporting_news/45/34/nascar-phoenix-051220-getty-ftrjpg_jugcv1cq6unt19ta8g1p0vl27.jpg"
-            alt="create"
-          />
+          <div>
+            <img
+              className="secondDivImg1"
+              src="https://res.cloudinary.com/df3vc4osi/image/upload/v1678970801/movie-gallery/spoonful-of-spices-cooking-vwodnnl3zzdsqhbo_vlqlpp.jpg"
+              alt="create"
+            />
+            <img
+              className="secondDivImg2"
+              src="https://res.cloudinary.com/df3vc4osi/image/upload/v1678970747/movie-gallery/s-l1600_lvvbjq.jpg"
+              alt="create"
+            />
+            <img
+              className="secondDivImg3"
+              src="https://images.daznservices.com/di/library/sporting_news/45/34/nascar-phoenix-051220-getty-ftrjpg_jugcv1cq6unt19ta8g1p0vl27.jpg"
+              alt="create"
+            />
+          </div>
           <p>
-            Search any topic you like sports, foods cars and see multitude of
-            posts to get ideas from.
+            Find any topic you like such as sports, food, cars and see multitude
+            of posts to get ideas from.
           </p>
         </div>
         <div className="thirdDiv">
