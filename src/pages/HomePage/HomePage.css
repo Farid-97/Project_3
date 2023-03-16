@@ -40,42 +40,45 @@
 .secondDiv {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   background-color: rgba(238, 195, 6, 0.574);
-  height: 60vh;
+  height: 80vh;
 }
 
 .secondDivImg1 {
-  height: 50vh;
-  padding-top: 50px;
-  display: flex;
-  z-index: 3;
-  padding-left: 20px;
+  position: absolute;
+  z-index: 1;
+  height: 25vh;
+    top: 266vh;
+  left:23vw;
+  border-radius: 25px 25px;
 }
 
 .secondDivImg2 {
-  padding-top: 250px;
-  display: flex;
-  position: absolute;
-  z-index: 4;
-  padding-left: 50px;
-  padding-bottom: 50px;
-  height: 80vh;
-  z-index: 3;
+  position:absolute;
+  z-index: 2;
+  top:230vh;
+  left:10vw;
+  height: 50vh;
+  width:16vw;
+  border-radius: 25px;
+  /* z-index: 4; */
+  /*   border-radius: 10px 100px / 120px; */
 }
 .secondDivImg3 {
-  display: flex;
   position: absolute;
-  padding-left: 150px;
-  padding-bottom: 80px;
-  height: 40vh;
-  z-index: 4;
-  border-radius: 5%;
+  top: 225vh;
+  height: 25vh;
+  width: 18vw;
+  left: 23vw;
+  border-radius: 40px;
+  /*  z-index: 2; */
+  /* border-radius: 50px; */
 }
 .secondDiv > p {
-  z-index: 5;
   font-size: 45px;
+  padding-left: 50vw;
+  padding-right: 10vw;
 }
 .thirdDiv {
   display: flex;
@@ -94,16 +97,3 @@
   height: 50vh;
 }
 
-.secondDivImg2{
-  padding-top: 150px;
-  display: flex;
-  position: absolute;
-  z-index: 4;
-  padding-left: 1300px;
-  padding-bottom: 50px;
-  height: 40vh;
-}
-.secondDiv >p {
-  font-size: 45px;
-  z-index: 10;
-}

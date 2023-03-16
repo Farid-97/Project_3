@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
+import "./Navbar.css"
 
 import Search from "../../components/Searchbar/Search";
 
@@ -18,7 +19,7 @@ function Navbar({ toggleHiddenS, toggleHiddenL, toggleHiddenH, searchPost }) {
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       {isLoggedIn && (
         <>
           <button onClick={refreshPage}>Feed</button>
@@ -49,22 +50,22 @@ function Navbar({ toggleHiddenS, toggleHiddenL, toggleHiddenH, searchPost }) {
         </>
       )}
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div>
         {" "}
       </div>
-      <ul class="navbar-nav mr-auto"> </ul>
+      <ul > </ul>
       {!isLoggedIn && (
         <>
           <Link to="/">
-            <button className="entry" onClick={toggleHiddenH}>
+            <button class="button"  onClick={toggleHiddenH}>
               Home
             </button>
           </Link>
-          <button className="entry" onClick={toggleHiddenS}>
+          <button class="button-17" onClick={toggleHiddenS}>
             Signup
           </button>
 
-          <button className="entry" onClick={toggleHiddenL}>
+          <button class="button-17"  onClick={toggleHiddenL}>
             Login
           </button>
         </>
