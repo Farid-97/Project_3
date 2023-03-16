@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import axios from "axios";
 import React from "react";
-
-
+import exampleService from "../../services/example.service";
+import { example } from "yargs";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -14,35 +14,28 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const {storedToken, authenticateUser} = useContext(AuthContext)
+  const { storedToken, authenticateUser } = useContext(AuthContext);
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
-  const handleLoginSubmit = async(e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
     const requestBody = { email, password };
 
-     // Send a request to the server using axios
-      
-      try {
-        const response = await axios.post(
-          `${process.env.REACT_APP_API_URL}/auth/login`,
-          requestBody,{ headers: { Authorization: `Bearer ${storedToken}` },
-        }
-        )
-        localStorage.setItem("authToken", response.data.authToken);
-        authenticateUser();
-  
-  
-        navigate("/");
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    // Send a request to the server using axios
 
- 
-  
+    try {
+      const response = await exampleService.login(requestBody);
+
+      localStorage.setItem("authToken", response.data.authToken);
+      authenticateUser();
+
+      navigate("/feed");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="form">
@@ -66,8 +59,8 @@ function Login() {
 
       <p>Don't have an account yet?</p>
       <Link to={"/signup"}> Sign Up</Link>
-    </div> 
-  ); 
+    </div>
+  );
 }
 
 export default Login;
