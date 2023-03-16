@@ -1,10 +1,30 @@
 import "./ProfilePage.css";
 import { useState, useEffect } from "react";
 import exampleService from "../../services/example.service";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
+import FavouritesSection from "../../components/FavouritesSection/FavouritesSection";
+import CreatedSection from "../../components/CreatedSection/CreatedSection";
 
 function ProfilePage() {
   const [user, setUser] = useState(null);
+  const [favourites, setFavourites] = useState(false)
+  const [created, setCreated] = useState(true)
+  
+  const navigate = useNavigate();
+
+  const toggleFavourites = () =>{
+    setFavourites(true)
+    setCreated(false)
+  }
+
+  const toggleCreated = () =>{
+    setCreated(true)
+    setFavourites(false)
+  }
+
+  const showFollowing = () => {
+    navigate('/following')
+  }
 
   const getUser = async () => {
     try {
@@ -25,22 +45,14 @@ function ProfilePage() {
       {user && <div>
         <img src={user.imgUrl} alt={user.username} />
         <h2>{user.username}</h2>
-        {!user.following.length ? <h2>Following: {user.following.length}</h2> : <button >Following: {user.following.length}</button> }
+        {!user.following.length ? <h2>Following: {user.following.length}</h2> : <button onClick={showFollowing}>Following: {user.following.length}</button> }
       </div>}
         <div>
           <Link to={"/editProfile"}>Edit Profile</Link>
         </div>
-      {user && user.post.map((post) =>{
-        return(
-            <div key={post._id}>
-              <Link to={`/post/${post._id}`}>
-                <h2>{post.title}</h2>
-                <h3>{post.description}</h3>
-                <img src={post.imgUrl} alt={post.title}/>
-              </Link>
-            </div>
-        )
-    })}
+       <button onClick={toggleCreated}>Created</button> <button onClick={toggleFavourites}>Favourites</button> 
+      {user && (!favourites && <CreatedSection user={user}/>)}
+      {user && (!created && <FavouritesSection user={user}/>)}
     </section>
   );
 }

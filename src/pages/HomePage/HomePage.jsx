@@ -4,10 +4,10 @@ import Login from "../../components/Login/Login";
 import "./HomePage.css";
 
 
-function HomePage({ hiddenS, hiddenL }) {
+function HomePage({ hiddenS, hiddenL, toggleHiddenL}) {
   return (
     <section>
-      {!hiddenS && <Signup />}
+      {!hiddenS && <Signup toggleHiddenL={toggleHiddenL}/>}
       {!hiddenL && <Login />}
       <h1>Ideal</h1>
 
@@ -80,13 +80,16 @@ function HomePage({ hiddenS, hiddenL }) {
           />
            <img
             className="secondDivImg2"
-            src="https://wallpapers.com/images/file/spoonful-of-spices-cooking-vwodnnl3zzdsqhbo.jpg"
+            src="https://images.unsplash.com/photo-1628779238951-be2c9f2a59f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTN8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80"
+            alt="create"
+          />
+          <img
+            className="secondDivImg3"
+            src="https://images.daznservices.com/di/library/sporting_news/45/34/nascar-phoenix-051220-getty-ftrjpg_jugcv1cq6unt19ta8g1p0vl27.jpg"
             alt="create"
           />
           <p >
-            Inspiratiopn may be hard to come by specialy if you are not a
-            creative person. IDEAL is a place where you can be inspired by other
-            people inspirations.
+           Search any topic you like sports, foods cars and see  multitude of posts to get ideas from.
           </p>
         </div>
         <div className="thirdDiv">
