@@ -93,3 +93,17 @@
 .thirdDiv > img {
   height: 50vh;
 }
+
+.secondDivImg2{
+  padding-top: 150px;
+  display: flex;
+  position: absolute;
+  z-index: 4;
+  padding-left: 1300px;
+  padding-bottom: 50px;
+  height: 40vh;
+}
+.secondDiv >p {
+  font-size: 45px;
+  z-index: 10;
+}

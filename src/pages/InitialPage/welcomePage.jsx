@@ -1,6 +1,7 @@
 import React , {useState, useEffect }from 'react'
 import exampleService from '../../services/example.service';
 import { Link } from 'react-router-dom';
+import "./WelcomePage.css";
 
 function WelcomePage() {
   const [posts, setPosts] = useState(null);
@@ -28,8 +29,8 @@ function WelcomePage() {
   }, []);
   
   return (
-    <div>{posts && posts.map((post) => {return(
-      <Link to={`/post/${post._id}`}><img src={post.imgUrl} alt={post.title} key={post._id}/></Link>)
+    <div className='organization'>{posts && posts.map((post) => {return(
+      <Link to={`/post/${post._id}`}><img  className='postimg'src={post.imgUrl} alt={post.title} key={post._id}/></Link>)
     })}</div>
   )
 }
