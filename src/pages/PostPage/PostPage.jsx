@@ -44,6 +44,7 @@ function PostPage() {
       const response = await exampleService.getUser();
 
       setThisUser(response.data);
+     
       const checked = response.data.favourites.filter((el) => el._id === id);
       //double bang - transforms into boolean
       setCheck(!!checked.length);
