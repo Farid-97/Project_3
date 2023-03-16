@@ -49,27 +49,30 @@ function Signup({toggleHiddenL }) {
     <div className="form">
       <h1>Sign Up</h1>
 
-      <form onSubmit={handleSignupSubmit}>
-        <label htmlFor="email">Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+      <form className="signup" onSubmit={handleSignupSubmit}>
+        <label className="line" htmlFor="email">Email:</label>
+        <input  className="signInput" type="email" name="email" value={email} onChange={handleEmail} />
 
-        <label htmlFor="password">Password:</label>
-        <input
+        <label className="line" htmlFor="password">Password:</label>
+        <input 
+        className="signInput"
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
 
-        <label htmlFor="username">Name:</label>
-        <input
+        <label className="line" htmlFor="username">Name:</label>
+        <input 
+
+           className="signInput"
           type="text"
           name="username"
           value={username}
           onChange={handleUserame}
         />
 
-        <button type="submit" onClick={toggleHiddenL}>Sign Up</button>
+        <button className="submitButton button-6" type="submit" onClick={toggleHiddenL}>Sign Up</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}

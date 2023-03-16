@@ -2,6 +2,7 @@ import "./ProfilePage.css";
 import { useState, useEffect } from "react";
 import exampleService from "../../services/example.service";
 import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FavouritesSection from "../../components/FavouritesSection/FavouritesSection";
 import CreatedSection from "../../components/CreatedSection/CreatedSection";
 import Following from "../../components/Following/Following";
@@ -18,7 +19,15 @@ function ProfilePage() {
     setFavourites(true);
     setCreated(false);
   };
+  const toggleFavourites = () => {
+    setFavourites(true);
+    setCreated(false);
+  };
 
+  const toggleCreated = () => {
+    setCreated(true);
+    setFavourites(false);
+  };
   const toggleCreated = () => {
     setCreated(true);
     setFavourites(false);

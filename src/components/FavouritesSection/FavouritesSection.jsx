@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 
 function FavouritesSection({user}) {
   return (
-    <div> {user.favourites.map((post) =>{
+    <div className='image'> {user.favourites.map((post) =>{
         return(
-            <div key={post._id}>
+            <div key={post._id}  className="idPic">
               <Link to={`/post/${post._id}`}>
-                <img src={post.imgUrl} alt={post.title}/>
+                <img className='postspic' src={post.imgUrl} alt={post.title}/>
               </Link>
             </div>
         )

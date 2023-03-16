@@ -12,6 +12,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+ 
+  padding-right: 25px;
+  background-color: rgba(0, 255, 255, 0.33);
+  height: 60vh;
 
   padding-right: 25px;
   background-color: rgba(0, 255, 255, 0.33);
@@ -23,8 +27,8 @@
   display: flex;
   z-index: 3;
 }
-.firstDivImg2 {
-  padding-top: 100px;
+.firstDivImg2{
+padding-top: 100px;
   display: flex;
   position: absolute;
   z-index: 4;
@@ -97,12 +101,12 @@
   background-color: rgba(89, 0, 173, 0.473);
   height: 60vh;
   z-index: 2;
+  
 }
-.thirdDiv > p {
+.thirdDiv > p{
   z-index: 5;
   font-size: 45px;
 }
 .thirdDiv > img {
   height: 50vh;
 }
-
