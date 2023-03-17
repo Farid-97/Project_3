@@ -43,13 +43,12 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<IsLogged><HomePage hiddenS={hiddenS} hiddenL={hiddenL} toggleHiddenL={toggleHiddenL} toggleHiddenS={toggleHiddenS} toggleHiddenH={toggleHiddenH}/></IsLogged>}/>
-        <Route path="/editPost/:id" element={<PostEdit toggleHiddenH={toggleHiddenH}/>} />
-        <Route path="/following" element={<Following toggleHiddenH={toggleHiddenH}/>} />
-        <Route path="/addPost" element={<AddPost toggleHiddenH={toggleHiddenH}/>} />
-        <Route path="/post/:id" element={<PostPage toggleHiddenH={toggleHiddenH}/>} />
-        <Route path="/profilePage" element={<ProfilePage toggleHiddenH={toggleHiddenH}/>} />
-        <Route path="/userProfile/:id" element={<UserProfile toggleHiddenH={toggleHiddenH}/>}/>
-        <Route path="/editProfile" element={<EditProfilePage toggleHiddenH={toggleHiddenH}/>} />
+        <Route path="/editPost/:id" element={<IsPrivate><PostEdit toggleHiddenH={toggleHiddenH}/></IsPrivate>} />
+        <Route path="/addPost" element={<IsPrivate><AddPost toggleHiddenH={toggleHiddenH}/></IsPrivate>} />
+        <Route path="/post/:id" element={<IsPrivate><PostPage toggleHiddenH={toggleHiddenH}/></IsPrivate>} />
+        <Route path="/profilePage" element={<IsPrivate><ProfilePage toggleHiddenH={toggleHiddenH}/></IsPrivate>} />
+        <Route path="/userProfile/:id" element={<IsPrivate><UserProfile toggleHiddenH={toggleHiddenH}/></IsPrivate>}/>
+        <Route path="/editProfile" element={<IsPrivate><EditProfilePage toggleHiddenH={toggleHiddenH}/></IsPrivate>} />
         <Route path="/feed" element={<IsPrivate><WelcomePage toggleHiddenH={toggleHiddenH}/></IsPrivate>}/>
       </Routes>
     </div>

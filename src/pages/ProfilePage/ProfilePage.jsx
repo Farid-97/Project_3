@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import FavouritesSection from "../../components/FavouritesSection/FavouritesSection";
 import CreatedSection from "../../components/CreatedSection/CreatedSection";
 import Following from "../../components/Following/Following";
+import NavLogIn from "../../components/NavLogIn/NavLogIn";
 
-function ProfilePage() {
+function ProfilePage({ toggleHiddenH }) {
   const [user, setUser] = useState(null);
   const [favourites, setFavourites] = useState(false);
   const [created, setCreated] = useState(true);

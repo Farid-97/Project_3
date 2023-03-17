@@ -27,7 +27,8 @@ function PostEdit({toggleHiddenH}) {
       }
     };
   
-    return (
+    return (<>
+    <NavLogIn toggleHiddenH={toggleHiddenH}/>
       <div>
         EdditProject{" "}
         <section>
@@ -51,6 +52,7 @@ function PostEdit({toggleHiddenH}) {
           </form>
         </section>
       </div>
+      </>
     );
 }
 

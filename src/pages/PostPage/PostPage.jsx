@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import exampleService from "../../services/example.service";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import "./PostPage.css";
+import NavLogIn from "../../components/NavLogIn/NavLogIn";
 import Button from "react-bootstrap/Button";
 
-function PostPage() {
+function PostPage({toggleHiddenH}) {
   const [post, setPost] = useState("");
   const [thisUser, setThisUser] = useState(false);
   const [check, setCheck] = useState(false);
@@ -98,6 +99,8 @@ function PostPage() {
   }, []);
 
   return (
+    <>
+    <NavLogIn toggleHiddenH={toggleHiddenH}/>
     <div className="mainDiv">
       {thisUser && post && (
         <>
@@ -236,6 +239,7 @@ function PostPage() {
         </>
       )}
     </div>
+    </>
   );
 }
 
