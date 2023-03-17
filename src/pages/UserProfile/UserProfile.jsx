@@ -3,8 +3,9 @@ import exampleService from "../../services/example.service";
 import { Link, useParams } from "react-router-dom";
 import FavouritesSection from "../../components/FavouritesSection/FavouritesSection";
 import CreatedSection from "../../components/CreatedSection/CreatedSection";
+import NavLogIn from "../../components/NavLogIn/NavLogIn";
 
-function UserProfile() {
+function UserProfile({toggleHiddenH}) {
   const [user, setUser] = useState(false);
   const [favourites, setFavourites] = useState(false);
   const [created, setCreated] = useState(true);
@@ -72,6 +73,8 @@ function UserProfile() {
   }, []);
 
   return (
+    <>
+    <NavLogIn toggleHiddenH={toggleHiddenH} />
     <section>
       {user && thisUser && (
         <div>
@@ -91,6 +94,7 @@ function UserProfile() {
       {user && !favourites && <CreatedSection user={user} />}
       {user && !created && <FavouritesSection user={user} />}
     </section>
+    </>
   );
 }
 
