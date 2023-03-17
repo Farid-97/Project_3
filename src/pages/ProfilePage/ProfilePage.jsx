@@ -42,6 +42,8 @@ function ProfilePage({ toggleHiddenH }) {
   }, []);
 
   return (
+    <>
+    <NavLogIn toggleHiddenH={toggleHiddenH}/>
     <section className="section1">
       {!hiddenF && <Following toggleFollowing={toggleFollowing} />}
       {user && (
@@ -79,6 +81,7 @@ function ProfilePage({ toggleHiddenH }) {
       {user && !favourites && <CreatedSection user={user} />}
       {user && !created && <FavouritesSection user={user} />}
     </section>
+    </>
   );
 }
 

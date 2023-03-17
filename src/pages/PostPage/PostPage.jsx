@@ -155,7 +155,7 @@ function PostPage({toggleHiddenH}) {
                     </Link>
                   ) : (
                     <Link to={`/userProfile/${post.createdBy[0]._id}`} className="creatorOfPost">
-                      <img
+                      <img className="currentUserPic" 
                         src={post.createdBy[0].imgUrl}
                         alt={post.createdBy[0].username}
                       />{" "}

@@ -9,8 +9,8 @@ function HomePage({ hiddenS, hiddenL, toggleHiddenL, toggleHiddenS, toggleHidden
   return (
     <section>
       <Navbar toggleHiddenS={toggleHiddenS} toggleHiddenH={toggleHiddenH} toggleHiddenL={toggleHiddenL}/>
-      {!hiddenS && <Signup toggleHiddenL={toggleHiddenL} />}
-      {!hiddenL && <Login />}
+      {!hiddenS && <Signup toggleHiddenL={toggleHiddenL} toggleHiddenH={toggleHiddenH}/>}
+      {!hiddenL && <Login toggleHiddenH={toggleHiddenH}/>}
       <h1>Ideal</h1>
       <Carousel fade>
       <Carousel.Item>

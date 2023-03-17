@@ -46,40 +46,41 @@ function EditProfilePage({toggleHiddenH}) {
     <>
     <NavLogIn toggleHiddenH={toggleHiddenH}/>
     <section className="section2 sectionOver">
-      <div className="following">
-        <h1>Edit your Profile</h1>
-        
-      <form onSubmit={handleSubmit} className="form2">
-          <label htmlFor="title">Title</label>
-          <input
-            className="addInput"
-            type="text"
-            name="title"
-            value={username}
-            onChange={handleUsername}
-          />
-          <label htmlFor="description">Description</label>
-          <input
-            className="addInput"
-            type="text"
-            name="description"
-            value={imgUrl}
-            onChange={imgUrl}
-          />
-          <label htmlFor="description">Profile Picture</label>
-          <input type="file" onChange={(e) => handleFileUpload(e)} />
+    <div className="following2">
+          <div className="titleDiv2">
+            <h4 className="titlePost">Edit your Profile</h4>
+          </div>
 
-          {!loading ? (
-            <Button variant="warning" className="disabledButton" onSubmit={handleSubmit} size="md" disabled>
-        Button
-      </Button>
-          ) : (
-            <Button variant="warning" className="disabledButton" size="md" disabled>
-        Button
-      </Button>
-          )}
-        </form>
-      </div>
+          <form className="form2" onSubmit={handleSubmit}>
+            <label className="line" htmlFor="username">
+              Username
+            </label>
+            <input
+              className="signInput"
+              type="email"
+              name="email"
+              value={username}
+              onChange={handleUsername}
+            />
+            <label className="line" htmlFor="imgUrl">Profile Picture</label>
+            <input type="file" onChange={(e) => handleFileUpload(e)} className="fileUpload"/>
+
+            {!loading ? (
+              <Button variant="warning" className="disabledButton" size="md">
+                Submit
+              </Button>
+            ) : (
+              <Button
+                variant="warning"
+                className="disabledButton"
+                size="md"
+                disabled
+              >
+                Submit
+              </Button>
+            )}
+          </form>
+        </div>
     </section>
     </>
   );

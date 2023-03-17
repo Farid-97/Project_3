@@ -1,8 +1,8 @@
 import React from "react";
 import "./Signup.css";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import authService from "../../services/auth.service";
 
 function Signup({ toggleHiddenL, toggleHiddenH }) {
   const [email, setEmail] = useState("");
@@ -10,7 +10,6 @@ function Signup({ toggleHiddenL, toggleHiddenH }) {
   const [username, setUsername] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
-  const navigate = useNavigate();
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -23,10 +22,8 @@ function Signup({ toggleHiddenL, toggleHiddenH }) {
 
     // Send a request to the server using axios
     try {
-      await axios.post(
-        `${process.env.REACT_APP_API_URL}/auth/signup`,
-        requestBody
-      );
+      await authService.signup(requestBody)
+      toggleHiddenL();
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +63,6 @@ function Signup({ toggleHiddenL, toggleHiddenH }) {
           className="signInput"
           type="email"
           name="email"
-          value={email}
           onChange={handleEmail}
         />
 
@@ -77,7 +73,6 @@ function Signup({ toggleHiddenL, toggleHiddenH }) {
           className="signInput"
           type="password"
           name="password"
-          value={password}
           onChange={handlePassword}
         />
 
@@ -88,14 +83,12 @@ function Signup({ toggleHiddenL, toggleHiddenH }) {
           className="signInput"
           type="text"
           name="username"
-          value={username}
           onChange={handleUserame}
         />
 
         <button
           className="submitButton button-6"
           type="submit"
-          onClick={toggleHiddenL}
         >
           Sign Up
         </button>
@@ -107,3 +100,8 @@ function Signup({ toggleHiddenL, toggleHiddenH }) {
 }
 
 export default Signup;
+
+/* axios.post(
+  `${process.env.REACT_APP_API_URL}/auth/signup`,
+  requestBody
+) */
