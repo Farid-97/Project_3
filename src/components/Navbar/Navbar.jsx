@@ -1,76 +1,29 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/auth.context";
-/* 
-import Search from "../../components/Searchbar/Search"; */
 
-import "./Navbar.css";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
-function Navbar({ toggleHiddenS, toggleHiddenL, toggleHiddenH}) {
-  
-  const navigate = useNavigate();
-  
-  const refreshPage = () =>{
-    navigate('/feed')
-    window.location.reload(false)
-  }
-
-  const { isLoggedIn, logOutUser } = useContext(AuthContext);
-
+function NavBar({ toggleHiddenS, toggleHiddenL, toggleHiddenH, searchPost }) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      {isLoggedIn && (
-        <>
-          <button onClick={refreshPage}>Feed</button>
-          <Link to="/addPost">Create a Post</Link>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          {/* <Search searchPost={searchPost} /> */}
-          <Link to="/profilePage">
-            <button>Profile</button>
-          </Link>
-          <button
-            onClick={(event) => {
-              logOutUser();
-              toggleHiddenH();
-            }}
-          >
-            Logout
-          </button>
-        </>
-      )}
-
-      <div>
-        {" "}
-      </div>
-      <ul > </ul>
-      {!isLoggedIn && (
-        <>
+    <Navbar bg="dark" variant="dark">
+      <Container>
+        <Nav className="me-auto">
+        <Nav.Link onClick={toggleHiddenH}> <img className="idealIcon" src="https://res.cloudinary.com/df3vc4osi/image/upload/v1679010951/movie-gallery/d955ceda-030c-4194-b564-1af23b6df3e6_fkf5g7.jpg" alt="Ideal Icon" /></Nav.Link> 
           <Link to="/">
-            <button className="button-48"  onClick={toggleHiddenH}>
-              <span className="text">Home</span> 
-            </button>
+            <Navbar.Brand onClick={toggleHiddenH}>Home</Navbar.Brand>
           </Link>
-          <button class="button-17" onClick={toggleHiddenS}>
-            Signup
-          </button>
-
-          <button class="button-17"  onClick={toggleHiddenL}>
-            Login
-          </button>
-        </>
-      )}
-    </nav>
+          <Link>
+            <Navbar.Brand onClick={toggleHiddenS}>Signup</Navbar.Brand>
+          </Link>
+          <Link>
+            <Navbar.Brand onClick={toggleHiddenL}>Login</Navbar.Brand>
+          </Link>
+        </Nav>
+      </Container>
+    </Navbar>
   );
 }
 
-export default Navbar;
+export default NavBar;

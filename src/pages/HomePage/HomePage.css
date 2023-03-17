@@ -22,19 +22,24 @@
   height: 60vh;
 }
 .firstDivImg1 {
-  height: 50vh;
-  padding-top: 50px;
-  display: flex;
-  z-index: 3;
+  
+  height: 40vh;
+  
+ 
+  z-index: 1;
+  border-radius: 30px;
 }
 .firstDivImg2{
-padding-top: 100px;
-  display: flex;
+
+ 
   position: absolute;
-  z-index: 4;
-  padding-left: 1400px;
+  padding-top: 300px;
+  z-index: 2;
+  padding-left: 1200px;
   padding-bottom: 50px;
-  height: 40vh;
+  height: 80vh;
+  
+  border-radius: 10px;
 }
 
 .firstDiv > p {
@@ -53,15 +58,15 @@ padding-top: 100px;
   position: absolute;
   z-index: 1;
   height: 25vh;
-    top: 266vh;
+    top: 205vh;
   left:23vw;
-  border-radius: 25px 25px;
+  border-radius: 25px 
 }
 
 .secondDivImg2 {
   position:absolute;
   z-index: 2;
-  top:230vh;
+  top:170vh;
   left:10vw;
   height: 50vh;
   width:16vw;
@@ -71,7 +76,7 @@ padding-top: 100px;
 }
 .secondDivImg3 {
   position: absolute;
-  top: 225vh;
+  top: 160vh;
   height: 25vh;
   width: 18vw;
   left: 23vw;
@@ -109,4 +114,7 @@ padding-top: 100px;
 }
 .thirdDiv > img {
   height: 50vh;
+  width: 40vw;
+  padding-right: 2vh;
+  border-radius: 35px;
 }

@@ -68,6 +68,10 @@
   position: relative;
 }
 
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
 .navMenu {
   position: absolute;
   top: 50%;

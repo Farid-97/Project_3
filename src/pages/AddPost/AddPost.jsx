@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import exampleService from "../../services/example.service";
-import "./AddPost.css";
-import Button from 'react-bootstrap/Button';
+import NavLogIn from "../../components/NavLogIn/NavLogIn";
 
-function AddPost() {
+
+function AddPost({toggleHiddenH}) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState("");
@@ -51,7 +51,8 @@ function AddPost() {
   return (
     <section className="section2">
       <div className="following">
-        <h1>Create a Post</h1>
+        <NavLogIn toggleHiddenH={toggleHiddenH}/>
+      <h1>Create a Post</h1>
         <form onSubmit={handleSubmit} className="form2">
           <label htmlFor="title">Title</label>
           <input

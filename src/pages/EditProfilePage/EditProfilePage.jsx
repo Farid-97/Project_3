@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import exampleService from "../../services/example.service";
+import NavLogIn from "../../components/NavLogIn/NavLogIn";
 import Button from "react-bootstrap/Button";
 
-function EditProfilePage() {
+function EditProfilePage({toggleHiddenH}) {
   const [username, setUsername] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [loading, setLoading] = useState(true);
@@ -45,7 +46,8 @@ function EditProfilePage() {
     <section className="section2 sectionOver">
       <div className="following">
         <h1>Edit your Profile</h1>
-        <form onSubmit={handleSubmit} className="form2">
+        <NavLogIn toggleHiddenH={toggleHiddenH}/>
+      <form onSubmit={handleSubmit} className="form2">
           <label htmlFor="title">Title</label>
           <input
             className="addInput"

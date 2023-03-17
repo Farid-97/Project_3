@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import exampleService from "../../services/example.service";
 import { Link } from "react-router-dom";
 import "../InitialPage/InitialPage.css";
+import NavLogIn from "../../components/NavLogIn/NavLogIn";
 
-function InitialPage() {
+function InitialPage({toggleHiddenH}) {
   const [posts, setPosts] = useState(null);
 
   const getPosts = async () => {
@@ -29,6 +30,8 @@ function InitialPage() {
   }, []);
 
   return (
+    <>
+    <NavLogIn toggleHiddenH={toggleHiddenH}/>
     <div className="image">
       {posts &&
         posts.map((post) => {
@@ -46,6 +49,7 @@ function InitialPage() {
           );
         })}
     </div>
+    </>
   );
 }
 

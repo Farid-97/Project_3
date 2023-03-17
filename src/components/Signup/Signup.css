@@ -6,7 +6,7 @@
     padding: 5vh;
     position: absolute;
    z-index: 9;
-   background-color: antiquewhite;
+   background-color: rgba(250, 235, 215, 0.909);
    border-radius: 20px;
 }
 
