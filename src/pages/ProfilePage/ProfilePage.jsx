@@ -4,11 +4,13 @@ import exampleService from "../../services/example.service";
 import {Link, useNavigate } from "react-router-dom";
 import FavouritesSection from "../../components/FavouritesSection/FavouritesSection";
 import CreatedSection from "../../components/CreatedSection/CreatedSection";
+import Following from "../../components/Following/Following";
 
 function ProfilePage() {
   const [user, setUser] = useState(null);
   const [favourites, setFavourites] = useState(false);
   const [created, setCreated] = useState(true);
+  const [hiddenF, setHiddenF] = useState(true);
 
   const navigate = useNavigate();
 
@@ -17,13 +19,14 @@ function ProfilePage() {
     setCreated(false);
   };
 
+
   const toggleCreated = () => {
     setCreated(true);
     setFavourites(false);
   };
 
-  const showFollowing = () => {
-    navigate("/following");
+  const toggleFollowing = () => {
+    setHiddenF(!hiddenF);
   };
 
   const getUser = async () => {
@@ -42,38 +45,27 @@ function ProfilePage() {
 
   return (
     <section>
+      {!hiddenF && <Following toggleFollowing={toggleFollowing}/>}
       {user && (
-        <div className="profile">
-          <img className="profilepic" src={user.imgUrl} alt={user.username} />
+        <div>
+          <img src={user.imgUrl} alt={user.username} />
           <h2>{user.username}</h2>
           {!user.following.length ? (
             <h2>Following: {user.following.length}</h2>
           ) : (
-            <button className="button-48"  onClick={showFollowing}>
-             <span>Following:</span>  {user.following.length}
+            <button onClick={toggleFollowing}>
+              Following: {user.following.length}
             </button>
           )}
-
-          <div className="edit">
-            <button className="button-48">
-              <Link className="text"  to={"/editProfile"}> <span className="text">
-                Edit Profile
-                </span> </Link>
-            </button>
-          </div>
         </div>
       )}
-      <div className="posts">
-        <button className="button-48 " onClick={toggleCreated}>
-          <span className="text">Created</span>{" "}
-        </button>
-
-        <button class="button-48" onClick={toggleFavourites}>
-         <span> Favourites</span> 
-        </button>
-        {user && !favourites && <CreatedSection user={user} />}
-        {user && !created && <FavouritesSection user={user} />}
+      <div>
+        <Link to={"/editProfile"}>Edit Profile</Link>
       </div>
+      <button onClick={toggleCreated}>Created</button>{" "}
+      <button onClick={toggleFavourites}>Favourites</button>
+      {user && !favourites && <CreatedSection user={user} />}
+      {user && !created && <FavouritesSection user={user} />}
     </section>
   );
 }

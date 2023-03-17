@@ -9,7 +9,7 @@ import AddPost from "./pages/AddPost/AddPost";
 import PostEdit from "./pages/PostEdit/PostEdit";
 import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
 import UserProfile from "./pages/UserProfile/UserProfile";
-import Following from "./pages/Following/Following";
+import Following from "./components/Following/Following";
 
 import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
@@ -17,7 +17,7 @@ import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import IsLogged from "./components/IsLogged/IsLogged";
 import exampleService from "./services/example.service";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [hiddenS, setHiddenS] = useState(true);
@@ -64,7 +64,6 @@ function App() {
         <Route path="/addPost" element={<AddPost toggleHiddenH={toggleHiddenH}/>} />
         <Route path="/post/:id" element={<PostPage toggleHiddenH={toggleHiddenH}/>} />
         <Route path="/profilePage" element={<ProfilePage toggleHiddenH={toggleHiddenH}/>} />
-        <Route path="/login" element={<IsAnon><Login toggleHiddenH={toggleHiddenH}/></IsAnon>}/>
         <Route path="/userProfile/:id" element={<UserProfile toggleHiddenH={toggleHiddenH}/>}/>
         <Route path="/editProfile" element={<EditProfilePage toggleHiddenH={toggleHiddenH}/>} />
         <Route path="/feed" element={<IsPrivate><WelcomePage toggleHiddenH={toggleHiddenH}/></IsPrivate>}/>

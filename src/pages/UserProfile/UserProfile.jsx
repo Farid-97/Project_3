@@ -32,6 +32,7 @@ function UserProfile() {
       
       //double bang - transforms into boolean
       setCheck(checked);
+      console.log(checked)
      
     } catch (error) {
       console.log(error);
@@ -81,7 +82,7 @@ function UserProfile() {
           ) : (
             <button>Following: {user.following.length}</button>
           )}
-          {check ? (<button onClick={dontFollow}>Following</button>) : (<button onClick={follow}>Follow</button>)}
+          {check ? (<button onClick={dontFollow}>Unfollow</button>) : (<button onClick={follow}>Follow</button>)}
           
         </div>
       )}
