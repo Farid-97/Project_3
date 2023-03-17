@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import exampleService from "../../services/example.service";
 import NavLogIn from "../../components/NavLogIn/NavLogIn";
+import { Button } from "react-bootstrap";
 
 
 function AddPost({toggleHiddenH}) {
@@ -49,9 +50,11 @@ function AddPost({toggleHiddenH}) {
   };
 
   return (
+    <>
+    <NavLogIn toggleHiddenH={toggleHiddenH}/>
     <section className="section2">
       <div className="following">
-        <NavLogIn toggleHiddenH={toggleHiddenH}/>
+        
       <h1>Create a Post</h1>
         <form onSubmit={handleSubmit} className="form2">
           <label htmlFor="title">Title</label>
@@ -87,6 +90,7 @@ function AddPost({toggleHiddenH}) {
         </form>
       </div>
     </section>
+    </>
   );
 }
 
