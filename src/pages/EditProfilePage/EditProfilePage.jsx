@@ -43,10 +43,12 @@ function EditProfilePage({toggleHiddenH}) {
     }
   };
   return (
+    <>
+    <NavLogIn toggleHiddenH={toggleHiddenH}/>
     <section className="section2 sectionOver">
       <div className="following">
         <h1>Edit your Profile</h1>
-        <NavLogIn toggleHiddenH={toggleHiddenH}/>
+        
       <form onSubmit={handleSubmit} className="form2">
           <label htmlFor="title">Title</label>
           <input
@@ -79,6 +81,7 @@ function EditProfilePage({toggleHiddenH}) {
         </form>
       </div>
     </section>
+    </>
   );
 }
 
