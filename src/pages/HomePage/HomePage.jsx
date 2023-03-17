@@ -2,61 +2,57 @@ import Signup from "../../components/Signup/Signup";
 import React from "react";
 import Login from "../../components/Login/Login";
 import "./HomePage.css";
+import Carousel from 'react-bootstrap/Carousel';
+import Navbar from "../../components/Navbar/Navbar";
 
-function HomePage({ hiddenS, hiddenL, toggleHiddenL }) {
+function HomePage({ hiddenS, hiddenL, toggleHiddenL, toggleHiddenS, toggleHiddenH }) {
   return (
     <section>
+      <Navbar toggleHiddenS={toggleHiddenS} toggleHiddenH={toggleHiddenH} toggleHiddenL={toggleHiddenL}/>
       {!hiddenS && <Signup toggleHiddenL={toggleHiddenL} />}
       {!hiddenL && <Login />}
       <h1>Ideal</h1>
+      <Carousel fade>
+      <Carousel.Item>
+       
+        <img
+          className="d-block w-100"
+          src="https://res.cloudinary.com/df3vc4osi/image/upload/v1679015401/movie-gallery/Captura_2_hvgiin.png"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3 >Discover Ideias</h3>
+          <p>Nothing more relaxing than mother nature.Get inspired and driv away in this peaceful creation.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://res.cloudinary.com/df3vc4osi/image/upload/v1679015406/movie-gallery/Captura_3_xt8sxs.png"
+          alt="Second slide"
+        />
 
-      <div
-        id="carouselExampleControls"
-        class="carousel slide"
-        data-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              class="d-block w-100"
-              src="https://media.npr.org/assets/img/2022/06/15/gettyimages-1329369484_custom-885a687ec4ed7acfd56a918dbc51f9204cebcf8b-s1100-c50.jpg"
-              alt="First slide"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              class="d-block w-100"
-              src="https://daily.jstor.org/wp-content/uploads/2020/06/why_you_should_learn_the_names_of_trees_1050x700.jpg"
-              alt="Second slide"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              class="d-block w-100"
-              src="https://www.gardeningknowhow.com/wp-content/uploads/2017/07/hardwood-tree.jpg"
-              alt="Third slide"
-            />
-          </div>
-        </div>
-        <a
-          class="carousel-control-prev"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a
-          class="carousel-control-next"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+        <Carousel.Caption>
+          <h3>Discover Ideias</h3>
+          <p>What is fashion? Nobody realy knows for certain, just where what you like.If you are out of any idea, well...</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://res.cloudinary.com/df3vc4osi/image/upload/v1679016126/movie-gallery/Captura_5_wmyuuv.png"
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Discover Ideias</h3>
+          <p>
+            The G.O.A.Ts the inspiration for millions of people around the world, here you can search news you ways to get inspired by them.
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
+     
       <div className="explanation">
         <div className="firstDiv">
           <p>
@@ -66,12 +62,12 @@ function HomePage({ hiddenS, hiddenL, toggleHiddenL }) {
           </p>
           <img
             className="firstDivImg1"
-            src="https://images.theconversation.com/files/183880/original/file-20170829-5012-mu9wnk.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"
+            src="https://images.squarespace-cdn.com/content/v1/5dc2bd1ed4ee8f437c3b8047/522bfdfc-391b-47f3-9768-7d5cd01f5ede/Imagination.jpg"
             alt="create"
           />
           <img
             className="firstDivImg2"
-            src="https://www.success.com/wp-content/uploads/2016/07/waystotapintoyourcreativeself.jpg"
+            src="https://images.unsplash.com/photo-1627949566743-283bf691cff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2luYXRpb258ZW58MHx8MHx8&w=1000&q=80"
             alt=""
           />
         </div>
@@ -100,29 +96,16 @@ function HomePage({ hiddenS, hiddenL, toggleHiddenL }) {
         </div>
         <div className="thirdDiv">
           <p>
-            Inspiratiopn may be hard to come by specialy if you are not a
-            creative person.Ideal is a place where you can be inspired by other
-            people inspirations.
+            Browse through Ideal and see a lot of Ideas and save the ones you like.
+          
           </p>
           <img
             className="create"
-            src="https://images.theconversation.com/files/183880/original/file-20170829-5012-mu9wnk.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop"
+            src="https://res.cloudinary.com/dv1xl09g5/image/upload/v1679019936/Captura_6_w8ipjg.png"
             alt="create"
           />
         </div>
-        {/* <div className="explanation2">
-          <img
-            className="create2"
-            src="https://treenewal.com/wp-content/uploads/2020/11/oak-tree-care.png"
-            alt=""
-          />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-            repellat, numquam voluptatum, possimus nemo excepturi eius est nihil
-            asperiores fuga nostrum? Debitis quo magni blanditiis quos
-            consectetur reiciendis minima sequi?
-          </p>
-        </div> */}
+        
       </div>
       <script
         src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"

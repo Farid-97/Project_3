@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import exampleService from "../../services/example.service";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import NavLogIn from "../../components/NavLogIn/NavLogIn";
 
 
-function PostEdit() {
+function PostEdit({toggleHiddenH}) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     

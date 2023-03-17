@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import exampleService from "../../services/example.service";
+import NavLogIn from "../../components/NavLogIn/NavLogIn";
 
-function EditProfilePage() {
+function EditProfilePage({toggleHiddenH}) {
   const [username, setUsername] = useState("");
   const [imgUrl, setImgUrl] = useState("");
 
@@ -40,6 +41,7 @@ function EditProfilePage() {
   };
   return (
     <div>
+      <NavLogIn toggleHiddenH={toggleHiddenH}/>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input

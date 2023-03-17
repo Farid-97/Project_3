@@ -28,7 +28,7 @@ function UserProfile() {
 
       setThisUser(response.data);
 
-      const checked = response.data.following.includes(id);
+      const checked = response.data.following.filter((el) => el._id === id);
       
       //double bang - transforms into boolean
       setCheck(checked);

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import exampleService from "../../services/example.service";
+import NavLogIn from "../../components/NavLogIn/NavLogIn";
 
 function Following() {
   const [thisUser, setThisUser] = useState(false);

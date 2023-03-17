@@ -2,8 +2,10 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import exampleService from "../../services/example.service";
+import NavLogIn from "../../components/NavLogIn/NavLogIn";
 
-function AddPost() {
+
+function AddPost({toggleHiddenH}) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState("");
@@ -50,6 +52,7 @@ function AddPost() {
 
   return (
     <section>
+      <NavLogIn toggleHiddenH={toggleHiddenH}/>
       <h1>Create Post</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>

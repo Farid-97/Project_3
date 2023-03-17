@@ -57,24 +57,17 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar
-        toggleHiddenS={toggleHiddenS}
-        toggleHiddenL={toggleHiddenL}
-        toggleHiddenH={toggleHiddenH}
-        searchFood={searchPost}
-      />
-
       <Routes>
-        <Route path="/" element={<IsLogged><HomePage hiddenS={hiddenS} hiddenL={hiddenL} toggleHiddenL={toggleHiddenL}/></IsLogged>}/>
-        <Route path="/editPost/:id" element={<PostEdit />} />
-        <Route path="/following" element={<Following/>} />
-        <Route path="/addPost" element={<AddPost />} />
-        <Route path="/post/:id" element={<PostPage />} />
-        <Route path="/profilePage" element={<ProfilePage />} />
-        <Route path="/login" element={<IsAnon><Login /></IsAnon>}/>
-        <Route path="/userProfile/:id" element={<UserProfile/>}/>
-        <Route path="/editProfile" element={<EditProfilePage />} />
-        <Route path="/feed" element={<IsPrivate><WelcomePage /></IsPrivate>}/>
+        <Route path="/" element={<IsLogged><HomePage hiddenS={hiddenS} hiddenL={hiddenL} toggleHiddenL={toggleHiddenL} toggleHiddenS={toggleHiddenS} toggleHiddenH={toggleHiddenH}/></IsLogged>}/>
+        <Route path="/editPost/:id" element={<PostEdit toggleHiddenH={toggleHiddenH}/>} />
+        <Route path="/following" element={<Following toggleHiddenH={toggleHiddenH}/>} />
+        <Route path="/addPost" element={<AddPost toggleHiddenH={toggleHiddenH}/>} />
+        <Route path="/post/:id" element={<PostPage toggleHiddenH={toggleHiddenH}/>} />
+        <Route path="/profilePage" element={<ProfilePage toggleHiddenH={toggleHiddenH}/>} />
+        <Route path="/login" element={<IsAnon><Login toggleHiddenH={toggleHiddenH}/></IsAnon>}/>
+        <Route path="/userProfile/:id" element={<UserProfile toggleHiddenH={toggleHiddenH}/>}/>
+        <Route path="/editProfile" element={<EditProfilePage toggleHiddenH={toggleHiddenH}/>} />
+        <Route path="/feed" element={<IsPrivate><WelcomePage toggleHiddenH={toggleHiddenH}/></IsPrivate>}/>
       </Routes>
     </div>
   );
