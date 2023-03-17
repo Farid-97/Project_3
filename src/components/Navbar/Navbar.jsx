@@ -6,7 +6,7 @@ import Search from "../../components/Searchbar/Search"; */
 
 import "./Navbar.css";
 
-function Navbar({ toggleHiddenS, toggleHiddenL, toggleHiddenH, searchPost }) {
+function Navbar({ toggleHiddenS, toggleHiddenL, toggleHiddenH}) {
   
   const navigate = useNavigate();
   

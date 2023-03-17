@@ -13,7 +13,6 @@
 .signup{
     display: flex;
     flex-direction: column;
-   
 }
 
 .line{
@@ -80,4 +79,14 @@
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   color: rgba(0, 0, 0, 0.65);
   transform: translateY(0);
+}
+
+.formTitle{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.linkCross{
+  margin-left:3vw;
 }

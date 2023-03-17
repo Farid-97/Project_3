@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/auth.context";
 import React from "react";
 import axios from "axios";
 
-function Login() {
+function Login({toggleHiddenH}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -41,26 +41,49 @@ function Login() {
 
   return (
     <div className="form">
-      <h1>Login</h1>
-
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label htmlFor="email">Password:</label>
+      <div className="formTitle">
+        <h1>Login</h1>
+        <Link className="linkCross">
+          <img
+            className="exitCross"
+            src="https://res.cloudinary.com/df3vc4osi/image/upload/v1678934027/movie-gallery/images-removebg-preview_cbnsxm.png"
+            alt="exit"
+            onClick={toggleHiddenH}
+          />
+        </Link>
+      </div>
+      <form className="signup" onSubmit={handleLoginSubmit}>
+        <label className="line" htmlFor="email">
+          Email:
+        </label>
         <input
+          className="signInput"
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleEmail}
+        />
+
+        <label className="line" htmlFor="password">
+          Password:
+        </label>
+        <input
+          className="signInput"
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
-
-        <button type="submit">Login</button>
+        <button
+          className="submitButton button-6"
+          type="submit"
+          
+        >
+          Login
+        </button>
       </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 }

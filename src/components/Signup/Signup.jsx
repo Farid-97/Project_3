@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Signup({toggleHiddenL }) {
+function Signup({ toggleHiddenL, toggleHiddenH }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -47,32 +47,58 @@ function Signup({toggleHiddenL }) {
 
   return (
     <div className="form">
-      <h1>Sign Up</h1>
-
+      <div className="formTitle">
+        <h1>Sign Up</h1>
+        <Link className="linkCross">
+          <img
+            className="exitCross"
+            src="https://res.cloudinary.com/df3vc4osi/image/upload/v1678934027/movie-gallery/images-removebg-preview_cbnsxm.png"
+            alt="exit"
+            onClick={toggleHiddenH}
+          />
+        </Link>
+      </div>
       <form className="signup" onSubmit={handleSignupSubmit}>
-        <label className="line" htmlFor="email">Email:</label>
-        <input  className="signInput" type="email" name="email" value={email} onChange={handleEmail} />
+        <label className="line" htmlFor="email">
+          Email:
+        </label>
+        <input
+          className="signInput"
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleEmail}
+        />
 
-        <label className="line" htmlFor="password">Password:</label>
-        <input 
-        className="signInput"
+        <label className="line" htmlFor="password">
+          Password:
+        </label>
+        <input
+          className="signInput"
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
 
-        <label className="line" htmlFor="username">Name:</label>
-        <input 
-
-           className="signInput"
+        <label className="line" htmlFor="username">
+          Name:
+        </label>
+        <input
+          className="signInput"
           type="text"
           name="username"
           value={username}
           onChange={handleUserame}
         />
 
-        <button className="submitButton button-6" type="submit" onClick={toggleHiddenL}>Sign Up</button>
+        <button
+          className="submitButton button-6"
+          type="submit"
+          onClick={toggleHiddenL}
+        >
+          Sign Up
+        </button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}

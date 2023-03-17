@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import exampleService from "../../services/example.service";
+import Button from "react-bootstrap/Button";
 
 function EditProfilePage() {
   const [username, setUsername] = useState("");
   const [imgUrl, setImgUrl] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const handleUsername = (e) => setUsername(e.target.value);
 
@@ -23,6 +25,7 @@ function EditProfilePage() {
         // console.log("response is: ", response);
         // response carries "fileUrl" which we can use to update the state
         setImgUrl(response.fileUrl);
+        setLoading(false);
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
   };
@@ -39,24 +42,41 @@ function EditProfilePage() {
     }
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={handleUsername}
-        />
-        <label htmlFor="profilePicture">Profile Picture</label>
-        <input
-          type="file"
-          name="profilePicture"
-          onChange={(e) => handleFileUpload(e)}
-        />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <section className="section2 sectionOver">
+      <div className="following">
+        <h1>Edit your Profile</h1>
+        <form onSubmit={handleSubmit} className="form2">
+          <label htmlFor="title">Title</label>
+          <input
+            className="addInput"
+            type="text"
+            name="title"
+            value={username}
+            onChange={handleUsername}
+          />
+          <label htmlFor="description">Description</label>
+          <input
+            className="addInput"
+            type="text"
+            name="description"
+            value={imgUrl}
+            onChange={imgUrl}
+          />
+          <label htmlFor="description">Profile Picture</label>
+          <input type="file" onChange={(e) => handleFileUpload(e)} />
+
+          {!loading ? (
+            <Button variant="warning" className="disabledButton" onSubmit={handleSubmit} size="md" disabled>
+        Button
+      </Button>
+          ) : (
+            <Button variant="warning" className="disabledButton" size="md" disabled>
+        Button
+      </Button>
+          )}
+        </form>
+      </div>
+    </section>
   );
 }
 

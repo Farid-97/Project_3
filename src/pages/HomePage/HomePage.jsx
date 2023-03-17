@@ -3,11 +3,11 @@ import React from "react";
 import Login from "../../components/Login/Login";
 import "./HomePage.css";
 
-function HomePage({ hiddenS, hiddenL, toggleHiddenL }) {
+function HomePage({ hiddenS, hiddenL, toggleHiddenL, toggleHiddenH }) {
   return (
     <section>
-      {!hiddenS && <Signup toggleHiddenL={toggleHiddenL} />}
-      {!hiddenL && <Login />}
+      {!hiddenS && <Signup toggleHiddenL={toggleHiddenL} toggleHiddenH={toggleHiddenH}/>}
+      {!hiddenL && <Login toggleHiddenH={toggleHiddenH}/>}
       <h1>Ideal</h1>
 
       <div
@@ -125,22 +125,6 @@ function HomePage({ hiddenS, hiddenL, toggleHiddenL }) {
           </p>
         </div> */}
       </div>
-      <script
-        src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"
-        crossorigin
-      ></script>
-
-      <script
-        src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"
-        crossorigin
-      ></script>
-
-      <script
-        src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
-        crossorigin
-      ></script>
-
-      <script>var Alert = ReactBootstrap.Alert;</script>
     </section>
   );
 }

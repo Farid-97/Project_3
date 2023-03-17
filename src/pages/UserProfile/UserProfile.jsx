@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import exampleService from "../../services/example.service";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import FavouritesSection from "../../components/FavouritesSection/FavouritesSection";
 import CreatedSection from "../../components/CreatedSection/CreatedSection";
+import "./UserProfile.css";
 
 function UserProfile() {
   const [user, setUser] = useState(false);
@@ -11,7 +12,7 @@ function UserProfile() {
   const [thisUser, setThisUser] = useState(false);
   const [check, setCheck] = useState(false);
 
-  const {id} = useParams();
+  const { id } = useParams();
 
   const toggleFavourites = () => {
     setFavourites(true);
@@ -27,12 +28,10 @@ function UserProfile() {
       const response = await exampleService.getUser();
 
       setThisUser(response.data);
-      const checked = response.data.following.filter((el) => el._id === id)
-      
+      const checked = response.data.following.filter((el) => el._id === id);
+
       //double bang - transforms into boolean
-      setCheck(checked);
-      console.log(checked)
-     
+      setCheck(!!checked.length);
     } catch (error) {
       console.log(error);
     }
@@ -72,21 +71,44 @@ function UserProfile() {
 
   return (
     <section>
-      {user && thisUser && (
-        <div>
-          <img src={user.imgUrl} alt={user.username} />
-          <h2>{user.username}</h2>
-          {!user.following.length ? (
-            <h2>Following: {user.following.length}</h2>
-          ) : (
-            <button>Following: {user.following.length}</button>
-          )}
-          {check ? (<button onClick={dontFollow}>Unfollow</button>) : (<button onClick={follow}>Follow</button>)}
-          
-        </div>
+      {user && (
+        <>
+          <div className="profile">
+            <img className="profilePic" src={user.imgUrl} alt={user.username} />
+            <h2>{user.username}</h2>
+            {!user.following.length ? (
+              <h2>Following: {user.following.length}</h2>
+            ) : (
+              <button className="button-48">
+                <span className="text">Following: {user.following.length}</span>
+              </button>
+            )}
+            <div className="editDiv">
+              {thisUser && check ? (
+                <button className="button-48 " onClick={dontFollow}>
+                 <span className="text">Unfollow</span>
+                </button>
+              ) : (
+                <button className="button-48" onClick={follow}>
+                <span className="text">Follow</span>
+                </button>
+              )}
+            </div>
+          </div>
+        </>
       )}
-      <button onClick={toggleCreated}>Created</button>{" "}
-      <button onClick={toggleFavourites}>Favourites</button>
+      <div className="postSection">
+        <div className="createdDiv">
+          <button className="button-48 editDiv" onClick={toggleCreated}>
+            <span className="text">Created</span>
+          </button>
+        </div>
+        <div>
+          <button className="button-48 editDiv" onClick={toggleFavourites}>
+            <span className="text">Favourites</span>
+          </button>
+        </div>
+      </div>
       {user && !favourites && <CreatedSection user={user} />}
       {user && !created && <FavouritesSection user={user} />}
     </section>

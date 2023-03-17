@@ -1,20 +1,19 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/auth.context";
 import exampleService from "../../services/example.service";
+import "./AddPost.css";
+import Button from 'react-bootstrap/Button';
 
 function AddPost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState("");
   const [imgUrl, setImgUrl] = useState("");
-  const [size, setSize] = useState('');
   const [loading, setLoading] = useState(true);
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleDescreption = (e) => setDescription(e.target.value);
   const handleTags = (e) => setTags(e.target.value);
-  const handleSize = (e) => setSize(e.target.value);
   const handleFileUpload = (e) => {
     // console.log("The file to be uploaded is: ", e.target.files[0]);
 
@@ -40,8 +39,7 @@ function AddPost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("hello");
-    const body = { title, description, tags, imgUrl, size };
-    console.log(size);
+    const body = { title, description, tags, imgUrl };
     try {
       await exampleService.addPost(body);
       navigate(`/profilePage`);
@@ -51,35 +49,42 @@ function AddPost() {
   };
 
   return (
-    <section>
-      <h1>Create Post</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Title</label>
-        <input type="text" name="title" value={title} onChange={handleTitle} />
-        <label htmlFor="description">Description</label>
-        <input
-          type="text"
-          name="description"
-          value={description}
-          onChange={handleDescreption}
-        />
-        <label htmlFor="title">Tags</label>
-        <input type="text" name="title" value={tags} onChange={handleTags} />
-        <label>Size</label>
-        <select onChange={handleSize}>
-          <option value="Large" selected>Large</option>
-          <option value="Medium">Medium</option>
-        </select>
-        <label htmlFor="description"> Post</label>
-        <input type="file" onChange={(e) => handleFileUpload(e)} />
-        
-        {!loading ? (
-          <button type="submit" onSubmit={handleSubmit}>
-            Submit
-          </button>
-          
-        ) : <h6>Submit</h6>}
+    <section className="section2">
+      <div className="following">
+        <h1>Create a Post</h1>
+        <form onSubmit={handleSubmit} className="form2">
+          <label htmlFor="title">Title</label>
+          <input
+            className="addInput"
+            type="text"
+            name="title"
+            value={title}
+            onChange={handleTitle}
+          />
+          <label htmlFor="description">Description</label>
+          <input
+            className="addInput"
+            type="text"
+            name="description"
+            value={description}
+            onChange={handleDescreption}
+          />
+          <label htmlFor="title">Tags</label>
+          <input className="addInput" type="text" name="title" value={tags} onChange={handleTags} />
+          <label htmlFor="description"> Post</label>
+          <input type="file" onChange={(e) => handleFileUpload(e)} />
+
+          {!loading ? (
+            <button type="submit" onSubmit={handleSubmit}>
+              Submit
+            </button>
+          ) : (
+            <Button variant="warning" className="disabledButton" size="md" disabled>
+        Button
+      </Button>
+          )}
         </form>
+      </div>
     </section>
   );
 }

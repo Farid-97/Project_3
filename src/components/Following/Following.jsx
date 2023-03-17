@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import exampleService from "../../services/example.service";
 import "./Following.css";
+import Button from 'react-bootstrap/Button';
 
 function Following({ toggleFollowing }) {
   const [thisUser, setThisUser] = useState(false);
 
   const getThisUser = async () => {
+
     try {
       const response = await exampleService.getUser();
       setThisUser(response.data);
@@ -14,6 +16,7 @@ function Following({ toggleFollowing }) {
       console.log(error);
     }
   };
+
 
   useEffect(() => {
     getThisUser();
@@ -38,15 +41,15 @@ function Following({ toggleFollowing }) {
               <>
                 <div className="eachUser">
                   <div className="userInfo">
-                    <img
+                    <Link className="link" to={`/userProfile/${user._id}`}><img
                       className="userImage"
                       src={user.imgUrl}
                       alt={user.username}
                     />
                     <b className="userName">{user.username}</b>
+                    </Link>
                   </div>
-
-                  <button className="unFollow">submit</button>
+                  <Link className="link unFollow" to={`/userProfile/${user._id}`}><Button variant="outline-dark">Go to Profile</Button></Link>
                 </div>
               </>
             );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import exampleService from "../../services/example.service";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import "./PostPage.css";
+import Button from "react-bootstrap/Button";
 
 function PostPage() {
   const [post, setPost] = useState("");
@@ -44,7 +45,7 @@ function PostPage() {
       const response = await exampleService.getUser();
 
       setThisUser(response.data);
-     
+
       const checked = response.data.favourites.filter((el) => el._id === id);
       //double bang - transforms into boolean
       setCheck(!!checked.length);
@@ -108,14 +109,17 @@ function PostPage() {
               <div className="infoDiv">
                 {post.createdBy.find((el) => el._id === thisUser._id) && (
                   <>
-                    <button className="buttons editButton">
+                    <Button variant="outline-warning">
                       <Link to={`/editPost/${post._id}`} className="link">
                         Edit Post
                       </Link>
-                    </button>
-                    <button onClick={deletePost} className="delButton">
+                    </Button>{" "}
+                    <Button
+                      variant="outline-danger delButton"
+                      onClick={deletePost}
+                    >
                       Delete Post
-                    </button>
+                    </Button>{" "}
                   </>
                 )}
                 {check ? (
@@ -139,6 +143,23 @@ function PostPage() {
               <div className="titleDescr">
                 <h2>{post.title}</h2>
                 <p className="description">{post.description}</p>
+                <div class="linkToCreator">
+                  {post.createdBy[0]._id === thisUser._id ? (
+                    <Link to={`/profilePage`} className="creatorOfPost">
+                      {" "}
+                      <img className="currentUserPic" src={thisUser.imgUrl} alt={thisUser.username} />
+                      {thisUser.username}
+                    </Link>
+                  ) : (
+                    <Link to={`/userProfile/${post.createdBy[0]._id}`} className="creatorOfPost">
+                      <img
+                        src={post.createdBy[0].imgUrl}
+                        alt={post.createdBy[0].username}
+                      />{" "}
+                      {post.createdBy[0].username}
+                    </Link>
+                  )}
+                </div>
               </div>
               <div className="commentsDiv">
                 {post.comments.map((comment) => {
@@ -202,11 +223,11 @@ function PostPage() {
                     onChange={handleComment}
                   />
                   {comment ? (
-                    <button type="submit" className="buttons">
-                      submit
-                    </button>
+                    <Button type="submit" variant="outline-warning">
+                      Submit
+                    </Button>
                   ) : (
-                    <p className="buttons">submit</p>
+                    <p className="buttons">Submit</p>
                   )}
                 </form>
               </div>

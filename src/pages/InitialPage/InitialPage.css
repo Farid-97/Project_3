@@ -12,10 +12,8 @@
     align-items: center; 
     justify-content: space-evenly;   
     flex-wrap: wrap;
+    background-color:antiquewhite
 }
 .idPic{
     margin:0.5vh 0.5vw;
-}
-body{
-    overflow-x:hidden;
 }

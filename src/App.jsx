@@ -39,21 +39,6 @@ function App() {
     setHiddenS(true);
   };
 
-  const getAllPosts = async () => {
-    try {
-      const response = await exampleService.getAllPosts();
-      setAllPosts(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const searchPost = (query) => {
-    const filteredPostList = allPosts.filter((post) =>
-      post.tags.toLowerCase().includes(query.toLowerCase())
-    );
-    setShowAllPosts(filteredPostList);
-  };
 
   return (
     <div className="App">
@@ -61,7 +46,6 @@ function App() {
         toggleHiddenS={toggleHiddenS}
         toggleHiddenL={toggleHiddenL}
         toggleHiddenH={toggleHiddenH}
-        searchFood={searchPost}
       />
 
       <Routes>
@@ -73,6 +57,7 @@ function App() {
                 hiddenS={hiddenS}
                 hiddenL={hiddenL}
                 toggleHiddenL={toggleHiddenL}
+                toggleHiddenH={toggleHiddenH}
               />
             </IsLogged>
           }
